@@ -28,19 +28,19 @@ export default function AboutPage() {
     return (
         <>
             {/* HERO */}
-            <section className="pt-32 pb-20 relative overflow-hidden tech-grid">
+            <section className="section-pad relative overflow-hidden tech-grid pt-32 lg:pt-48">
                 <div className="absolute inset-0 gradient-radial-orange pointer-events-none" />
                 <div className="container-custom relative z-10">
-                    <div className="max-w-3xl">
+                    <div className="max-w-3xl flex flex-col items-center text-center lg:items-start lg:text-left">
                         <p className="section-label">About</p>
-                        <h1 className="text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
+                        <h1 className="mb-6">
                             The AI Automation Strategist{' '}
                             <span className="text-gradient-orange">Behind the Systems</span>
                         </h1>
-                        <p className="text-xl leading-relaxed mb-8" style={{ color: '#9CA3AF' }}>
+                        <p className="text-base sm:text-lg lg:text-xl leading-relaxed mb-10" style={{ color: '#9CA3AF' }}>
                             I'm Noor ul Ain — an AI Automation Strategist and Systems Architect helping SaaS companies and scaling businesses design intelligent automation that creates real competitive advantage.
                         </p>
-                        <div className="flex items-center gap-4">
+                        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
                             <a href={SITE_CONFIG.calendly} target="_blank" rel="noopener noreferrer" className="btn-orange">
                                 <span>Book a Strategy Call</span>
                             </a>
@@ -55,48 +55,48 @@ export default function AboutPage() {
             {/* STORY */}
             <section className="section-pad">
                 <div className="container-custom">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                         {/* Visual */}
-                        <div className="relative">
-                            <div className="rounded-2xl p-10 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1A1A1F, #111114)', border: '1px solid rgba(255,106,0,0.2)' }}>
+                        <div className="relative order-last lg:order-none">
+                            <div className="rounded-2xl p-6 sm:p-10 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1A1A1F, #111114)', border: '1px solid rgba(255,106,0,0.2)' }}>
                                 <div className="absolute top-0 right-0 w-48 h-48 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(255,106,0,0.12) 0%, transparent 70%)' }} />
-                                <div className="grid grid-cols-2 gap-4 relative z-10">
+                                <div className="grid grid-cols-1 xs:grid-cols-2 gap-4 relative z-10">
                                     {[
                                         { label: 'Tools Automated', value: '50+' },
                                         { label: 'SaaS Products Built', value: '12+' },
                                         { label: 'Hours Saved/Week', value: '500+' },
                                         { label: 'Years Experience', value: '5+' },
                                     ].map((item) => (
-                                        <div key={item.label} className="highlight-box text-center">
-                                            <p className="text-3xl font-black text-gradient-orange">{item.value}</p>
-                                            <p className="text-xs mt-1" style={{ color: '#9CA3AF' }}>{item.label}</p>
+                                        <div key={item.label} className="highlight-box text-center p-4">
+                                            <p className="text-2xl sm:text-3xl font-black text-gradient-orange">{item.value}</p>
+                                            <p className="text-[10px] sm:text-xs mt-1 uppercase tracking-wider" style={{ color: '#9CA3AF' }}>{item.label}</p>
                                         </div>
                                     ))}
                                 </div>
                                 <div className="divider my-6" />
-                                <div className="flex flex-wrap gap-2">
+                                <div className="flex flex-wrap justify-center lg:justify-start gap-2">
                                     {['n8n', 'Python', 'OpenAI', 'FastAPI', 'AWS', 'LangChain', 'Docker', 'PostgreSQL'].map((t) => (
-                                        <span key={t} className="tag">{t}</span>
+                                        <span key={t} className="tag text-[10px] px-2 py-1">{t}</span>
                                     ))}
                                 </div>
                             </div>
                         </div>
 
                         {/* Text */}
-                        <div>
-                            <p className="section-label">My Story</p>
-                            <h2 className="text-3xl font-black text-white mb-6">
-                                From Developer to AI Automation Authority
+                        <div className="text-center lg:text-left">
+                            <p className="section-label lg:justify-start justify-center">My Story</p>
+                            <h2 className="mb-6">
+                                From Developer to Authority
                             </h2>
-                            <div className="space-y-5 text-base leading-relaxed" style={{ color: '#9CA3AF' }}>
+                            <div className="space-y-6 text-base sm:text-lg leading-relaxed" style={{ color: '#9CA3AF' }}>
                                 <p>
                                     My journey began in software development, where I quickly realized that the biggest constraint on business growth wasn't talent or strategy — it was operational inefficiency. Teams drowning in manual work couldn't move fast enough to compete.
                                 </p>
                                 <p>
-                                    I spent years mastering Python, cloud infrastructure, and SaaS architecture. Then n8n and the LLM revolution arrived, and everything changed. For the first time, it was possible to automate complex, intelligent business processes end-to-end — not just simple rule-based tasks.
+                                    I spent years mastering Python, cloud infrastructure, and SaaS architecture. Then n8n and the LLM revolution arrived, and everything changed. For the first time, it was possible to automate complex, intelligent business processes end-to-end.
                                 </p>
                                 <p>
-                                    Now, I work exclusively with SaaS founders and scaling businesses who are serious about using AI automation as a competitive weapon — not just a nice-to-have. My clients don't hire me to save a few hours. They hire me to redesign how their operations work entirely.
+                                    Now, I work exclusively with SaaS founders and scaling businesses who are serious about using AI automation as a competitive weapon. My clients don't hire me to save a few hours. They hire me to redesign how their operations work entirely.
                                 </p>
                             </div>
                         </div>
@@ -114,12 +114,12 @@ export default function AboutPage() {
                             Not a generalist. A focused specialist in AI automation systems and intelligent workflow architecture.
                         </p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {expertise.map((item, i) => (
-                            <div key={i} className="card p-7">
-                                <div className="text-3xl mb-4">{item.icon}</div>
-                                <h3 className="text-lg font-bold text-white mb-3">{item.title}</h3>
-                                <p className="text-sm leading-relaxed" style={{ color: '#9CA3AF' }}>{item.desc}</p>
+                            <div key={i} className="card p-8 group overflow-hidden">
+                                <div className="text-4xl mb-5 transition-transform group-hover:translate-x-2 duration-300">{item.icon}</div>
+                                <h3 className="mb-3">{item.title}</h3>
+                                <p className="text-sm sm:text-base leading-relaxed" style={{ color: '#9CA3AF' }}>{item.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -134,15 +134,15 @@ export default function AboutPage() {
                             <p className="section-label justify-center">Philosophy</p>
                             <h2 className="text-4xl font-black text-white mb-4">How I Work</h2>
                         </div>
-                        <div className="space-y-5">
+                        <div className="space-y-6">
                             {values.map((v, i) => (
-                                <div key={i} className="card p-7 flex gap-5">
-                                    <div className="w-10 h-10 rounded-lg shrink-0 flex items-center justify-center font-black text-white" style={{ background: 'linear-gradient(135deg, #FF8C1A, #FF4D00)' }}>
+                                <div key={i} className="card p-6 sm:p-8 flex flex-col sm:flex-row gap-6">
+                                    <div className="w-12 h-12 rounded-xl shrink-0 flex items-center justify-center font-black text-white text-xl" style={{ background: 'linear-gradient(135deg, #FF8C1A, #FF4D00)' }}>
                                         {i + 1}
                                     </div>
                                     <div>
-                                        <h3 className="text-lg font-bold text-white mb-2">{v.title}</h3>
-                                        <p className="text-sm leading-relaxed" style={{ color: '#9CA3AF' }}>{v.desc}</p>
+                                        <h3 className="mb-2">{v.title}</h3>
+                                        <p className="text-sm sm:text-base leading-relaxed" style={{ color: '#9CA3AF' }}>{v.desc}</p>
                                     </div>
                                 </div>
                             ))}

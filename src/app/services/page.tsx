@@ -21,17 +21,19 @@ export default function ServicesPage() {
     return (
         <>
             {/* HERO */}
-            <section className="pt-32 pb-20 relative overflow-hidden tech-grid">
+            <section className="section-pad relative overflow-hidden tech-grid pt-40 lg:pt-56">
                 <div className="absolute inset-0 gradient-radial-orange pointer-events-none" />
-                <div className="container-custom relative z-10 text-center max-w-3xl mx-auto">
-                    <p className="section-label justify-center">Services</p>
-                    <h1 className="text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
-                        High-Ticket AI Automation{' '}
-                        <span className="text-gradient-orange">Consulting Services</span>
-                    </h1>
-                    <p className="text-xl leading-relaxed" style={{ color: '#9CA3AF' }}>
-                        Precision-engineered automation systems designed to eliminate operational drag and give your business a measurable competitive edge.
-                    </p>
+                <div className="container-custom relative z-10 text-center">
+                    <div className="max-w-3xl mx-auto">
+                        <span className="section-label justify-center">Services</span>
+                        <h1 className="mb-6">
+                            High-Ticket AI Automation{' '}
+                            <span className="text-gradient-orange">Consulting Services</span>
+                        </h1>
+                        <p className="text-base sm:text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto" style={{ color: '#9CA3AF' }}>
+                            Precision-engineered automation systems designed to eliminate operational drag and give your business a measurable competitive edge.
+                        </p>
+                    </div>
                 </div>
             </section>
 
@@ -40,14 +42,18 @@ export default function ServicesPage() {
                 <div className="container-custom">
                     <div className="space-y-8">
                         {services.map((service, i) => (
-                            <div key={service.id} id={service.id} className="card p-8 md:p-10 scroll-mt-24">
-                                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <div key={service.id} id={service.id} className="card p-8 sm:p-10 md:p-12 scroll-mt-24">
+                                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
                                     {/* Left */}
                                     <div className="lg:col-span-1">
-                                        <div className="text-5xl mb-5">{service.icon}</div>
-                                        <h2 className="text-2xl font-black text-white mb-3">{service.title}</h2>
-                                        <p className="font-bold text-lg mb-4" style={{ color: '#FF6A00' }}>{service.price}</p>
-                                        <div className="flex flex-wrap gap-2">
+                                        <div className="icon-box">
+                                            {service.icon}
+                                        </div>
+                                        <h2 className="mb-4 text-3xl lg:text-4xl">{service.title}</h2>
+                                        <div className="mb-8">
+                                            <p className="price-tag mb-0">{service.price}</p>
+                                        </div>
+                                        <div className="flex flex-wrap gap-2.5">
                                             {service.tools.map((tool) => (
                                                 <span key={tool} className="tag">{tool}</span>
                                             ))}
@@ -56,25 +62,28 @@ export default function ServicesPage() {
 
                                     {/* Right — Problem → Solution → Outcome */}
                                     <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-6">
-                                        <div className="highlight-box">
-                                            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#FF6A00' }}>🔴 Problem</p>
-                                            <p className="text-sm leading-relaxed" style={{ color: '#9CA3AF' }}>{service.problem}</p>
+                                        <div className="highlight-box flex flex-col group/box">
+                                            <p className="text-[10px] font-black uppercase tracking-[0.2em] mb-4 text-red-500">🔴 Problem</p>
+                                            <p className="text-sm sm:text-base leading-relaxed flex-1" style={{ color: '#9CA3AF' }}>{service.problem}</p>
                                         </div>
-                                        <div className="highlight-box">
-                                            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#FF6A00' }}>⚡ Solution</p>
-                                            <p className="text-sm leading-relaxed" style={{ color: '#9CA3AF' }}>{service.solution}</p>
+                                        <div className="highlight-box flex flex-col group/box">
+                                            <p className="text-[10px] font-black uppercase tracking-[0.2em] mb-4 text-orange-500">⚡ Solution</p>
+                                            <p className="text-sm sm:text-base leading-relaxed flex-1" style={{ color: '#9CA3AF' }}>{service.solution}</p>
                                         </div>
-                                        <div className="highlight-box">
-                                            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#FF6A00' }}>✅ Outcome</p>
-                                            <p className="text-sm leading-relaxed" style={{ color: '#9CA3AF' }}>{service.outcome}</p>
+                                        <div className="highlight-box flex flex-col group/box">
+                                            <p className="text-[10px] font-black uppercase tracking-[0.2em] mb-4 text-green-500">✅ Outcome</p>
+                                            <p className="text-sm sm:text-base leading-relaxed flex-1" style={{ color: '#9CA3AF' }}>{service.outcome}</p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="divider my-7" />
-                                <div className="flex items-center justify-between">
-                                    <p className="text-sm" style={{ color: '#6B7280' }}>Average project timeline: 2–6 weeks</p>
-                                    <a href={SITE_CONFIG.calendly} target="_blank" rel="noopener noreferrer" className="btn-orange text-sm">
+                                <div className="divider my-10 opacity-30" />
+                                <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
+                                        <p className="text-sm sm:text-base italic font-medium" style={{ color: '#6B7280' }}>Average project timeline: 2–6 weeks</p>
+                                    </div>
+                                    <a href={SITE_CONFIG.calendly} target="_blank" rel="noopener noreferrer" className="btn-orange w-full sm:w-auto px-10">
                                         <span>Discuss This Service →</span>
                                     </a>
                                 </div>
@@ -94,15 +103,12 @@ export default function ServicesPage() {
                             A structured, transparent process designed to deliver maximum value with minimum friction.
                         </p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {process.map((step, i) => (
-                            <div key={i} className="card p-7 relative">
-                                <p className="text-6xl font-black mb-4" style={{ color: 'rgba(255,106,0,0.15)', lineHeight: 1 }}>{step.step}</p>
-                                <h3 className="text-lg font-bold text-white mb-3">{step.title}</h3>
-                                <p className="text-sm leading-relaxed" style={{ color: '#9CA3AF' }}>{step.desc}</p>
-                                {i < process.length - 1 && (
-                                    <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px" style={{ background: 'rgba(255,106,0,0.4)' }} />
-                                )}
+                            <div key={i} className="card p-8 group overflow-hidden">
+                                <p className="text-6xl font-black mb-4 transition-transform group-hover:scale-110 duration-500" style={{ color: 'rgba(255,106,0,0.15)', lineHeight: 1 }}>{step.step}</p>
+                                <h3 className="mb-3">{step.title}</h3>
+                                <p className="text-sm sm:text-base leading-relaxed" style={{ color: '#9CA3AF' }}>{step.desc}</p>
                             </div>
                         ))}
                     </div>

@@ -29,17 +29,19 @@ export default function ContactClient() {
     return (
         <>
             {/* HERO */}
-            <section className="pt-32 pb-20 relative overflow-hidden tech-grid">
+            <section className="section-pad relative overflow-hidden tech-grid pt-32 lg:pt-48">
                 <div className="absolute inset-0 gradient-radial-orange pointer-events-none" />
-                <div className="container-custom relative z-10 text-center max-w-3xl mx-auto">
-                    <p className="section-label justify-center">Contact</p>
-                    <h1 className="text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
-                        Let&apos;s Build Something{' '}
-                        <span className="text-gradient-orange">Intelligent</span>
-                    </h1>
-                    <p className="text-xl leading-relaxed" style={{ color: '#9CA3AF' }}>
-                        Have a project in mind? Book a strategy call or send a message. I respond within 24 hours to qualified inquiries.
-                    </p>
+                <div className="container-custom relative z-10 text-center">
+                    <div className="max-w-3xl mx-auto">
+                        <p className="section-label justify-center">Contact</p>
+                        <h1 className="mb-6">
+                            Let&apos;s Build Something{' '}
+                            <span className="text-gradient-orange">Intelligent</span>
+                        </h1>
+                        <p className="text-base sm:text-lg lg:text-xl leading-relaxed" style={{ color: '#9CA3AF' }}>
+                            Have a project in mind? Book a strategy call or send a message. I respond within 24 hours to qualified inquiries.
+                        </p>
+                    </div>
                 </div>
             </section>
 
@@ -47,17 +49,17 @@ export default function ContactClient() {
                 <div className="container-custom">
                     <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
                         {/* Contact Form */}
-                        <div className="lg:col-span-3">
-                            <div className="card p-8 md:p-10">
-                                <h2 className="text-2xl font-black text-white mb-2">Send a Message</h2>
-                                <p className="text-sm mb-8" style={{ color: '#6B7280' }}>
+                        <div className="lg:col-span-3 order-first lg:order-none">
+                            <div className="card p-6 sm:p-8 md:p-10">
+                                <h2 className="mb-2">Send a Message</h2>
+                                <p className="text-sm sm:text-base mb-8" style={{ color: '#6B7280' }}>
                                     Tell me about your project and your biggest operational challenge.
                                 </p>
 
                                 {submitted ? (
                                     <div className="text-center py-12">
-                                        <div className="text-6xl mb-4">🎯</div>
-                                        <h3 className="text-xl font-bold text-white mb-2">Message Sent!</h3>
+                                        <div className="text-6xl mb-6">🎯</div>
+                                        <h3 className="mb-2">Message Sent!</h3>
                                         <p style={{ color: '#9CA3AF' }}>
                                             I&apos;ll review your project and get back to you within 24 hours.
                                         </p>
@@ -65,17 +67,17 @@ export default function ContactClient() {
                                             href={SITE_CONFIG.calendly}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="btn-orange mt-6 inline-flex"
+                                            className="btn-orange mt-8"
                                         >
                                             <span>Or Book a Call Now →</span>
                                         </a>
                                     </div>
                                 ) : (
-                                    <form onSubmit={handleSubmit} className="space-y-5">
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                    <form onSubmit={handleSubmit} className="space-y-6">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                             <div>
                                                 <label
-                                                    className="block text-xs font-bold uppercase tracking-widest mb-2"
+                                                    className="block text-[10px] font-bold uppercase tracking-widest mb-3"
                                                     style={{ color: '#9CA3AF' }}
                                                 >
                                                     Full Name *
@@ -92,7 +94,7 @@ export default function ContactClient() {
                                             </div>
                                             <div>
                                                 <label
-                                                    className="block text-xs font-bold uppercase tracking-widest mb-2"
+                                                    className="block text-[10px] font-bold uppercase tracking-widest mb-3"
                                                     style={{ color: '#9CA3AF' }}
                                                 >
                                                     Email Address *
@@ -109,10 +111,10 @@ export default function ContactClient() {
                                             </div>
                                         </div>
 
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                             <div>
                                                 <label
-                                                    className="block text-xs font-bold uppercase tracking-widest mb-2"
+                                                    className="block text-[10px] font-bold uppercase tracking-widest mb-3"
                                                     style={{ color: '#9CA3AF' }}
                                                 >
                                                     Company / Startup
@@ -128,7 +130,7 @@ export default function ContactClient() {
                                             </div>
                                             <div>
                                                 <label
-                                                    className="block text-xs font-bold uppercase tracking-widest mb-2"
+                                                    className="block text-[10px] font-bold uppercase tracking-widest mb-3"
                                                     style={{ color: '#9CA3AF' }}
                                                 >
                                                     Project Budget
@@ -160,7 +162,7 @@ export default function ContactClient() {
 
                                         <div>
                                             <label
-                                                className="block text-xs font-bold uppercase tracking-widest mb-2"
+                                                className="block text-[10px] font-bold uppercase tracking-widest mb-3"
                                                 style={{ color: '#9CA3AF' }}
                                             >
                                                 Your Biggest Challenge *
@@ -168,7 +170,7 @@ export default function ContactClient() {
                                             <textarea
                                                 required
                                                 rows={5}
-                                                placeholder="Describe the manual processes you want to automate, the tools you currently use, and what success looks like for your business..."
+                                                placeholder="Describe the processes you want to automate..."
                                                 className={`${inputClass} resize-none`}
                                                 style={inputStyle}
                                                 value={form.message}
@@ -176,10 +178,10 @@ export default function ContactClient() {
                                             />
                                         </div>
 
-                                        <button type="submit" className="btn-orange w-full text-base py-4 justify-center">
+                                        <button type="submit" className="btn-orange w-full text-base py-5">
                                             <span>Send Message →</span>
                                         </button>
-                                        <p className="text-xs text-center" style={{ color: '#6B7280' }}>
+                                        <p className="text-[10px] text-center italic" style={{ color: '#6B7280' }}>
                                             I respond to all qualified inquiries within 24 hours.
                                         </p>
                                     </form>

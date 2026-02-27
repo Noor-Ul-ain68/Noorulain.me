@@ -29,7 +29,7 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════
           HERO SECTION — Two Column Layout
       ═══════════════════════════════════════ */}
-      <section className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden tech-grid">
+      <section className="relative min-h-screen flex items-center pt-40 pb-24 lg:pt-56 lg:pb-32 overflow-hidden tech-grid text-balance">
 
         {/* Background ambient glows */}
         <div className="absolute inset-0 gradient-radial-orange pointer-events-none" />
@@ -49,13 +49,13 @@ export default function HomePage() {
         </div>
 
         <div className="container-custom relative z-10 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
             {/* ── LEFT: Headline + CTAs ── */}
-            <div>
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-left pt-8 lg:pt-0">
               {/* Status badge */}
               <div
-                className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full text-sm font-medium animate-fade-in-up"
+                className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full text-[10px] xs:text-xs sm:text-sm font-medium animate-fade-in-up"
                 style={{ background: 'rgba(255,106,0,0.1)', border: '1px solid rgba(255,106,0,0.25)', color: '#FF8C1A' }}
               >
                 <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#FF6A00' }} />
@@ -63,63 +63,63 @@ export default function HomePage() {
               </div>
 
               {/* H1 */}
-              <h1 className="text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-black leading-[1.05] mb-6 animate-fade-in-up delay-100">
+              <h1 className="mb-8 animate-fade-in-up delay-100 max-w-2xl">
                 Building{' '}
-                <span className="text-gradient-orange">Intelligent AI</span>
-                <br />
-                Automation Systems
-                <br />
-                <span className="text-white">That Scale Businesses</span>
+                <span className="text-gradient-orange whitespace-nowrap">Intelligent AI</span>
+                <br className="hidden sm:block" />
+                <span className="block sm:inline"> Automation Systems</span>
+                <br className="hidden lg:block" />
+                <span className="block text-white mt-2 lg:mt-0">That Scale Businesses</span>
               </h1>
 
               <p
-                className="text-xl leading-relaxed mb-10 max-w-xl animate-fade-in-up delay-200"
+                className="text-base sm:text-lg lg:text-xl leading-relaxed mb-12 max-w-xl animate-fade-in-up delay-200"
                 style={{ color: '#9CA3AF' }}
               >
                 Helping startups and growing companies eliminate manual work using{' '}
-                <span style={{ color: '#FF6A00' }}>n8n</span>,{' '}
-                <span style={{ color: '#FF6A00' }}>LLM integrations</span>, and scalable SaaS
+                <span className="text-white font-semibold">n8n</span>,{' '}
+                <span className="text-white font-semibold">LLM integrations</span>, and scalable SaaS
                 architectures. I design systems that work 24/7 — so your team doesn&apos;t have to.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 animate-fade-in-up delay-300">
+              <div className="flex flex-col sm:flex-row items-center gap-5 w-full sm:w-auto animate-fade-in-up delay-300">
                 <a
                   href={SITE_CONFIG.calendly}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-orange text-base px-8 py-4"
+                  className="btn-orange"
                 >
-                  <span>Book a Free Strategy Call →</span>
+                  <span>Book Strategy Call →</span>
                 </a>
-                <Link href="/case-studies" className="btn-ghost text-base px-8 py-4">
+                <Link href="/case-studies" className="btn-ghost">
                   View Case Studies
                 </Link>
               </div>
 
               {/* Social proof */}
-              <div className="mt-12 flex items-center gap-4 animate-fade-in-up delay-400">
-                <div className="flex items-center gap-1">
+              <div className="mt-16 lg:mt-20 flex flex-col sm:flex-row items-center gap-5 animate-fade-in-up delay-400">
+                <div className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/5 bg-white/2">
                   {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-4 h-4" style={{ color: '#FF6A00' }} fill="currentColor" viewBox="0 0 20 20">
+                    <svg key={i} className="w-3.5 h-3.5" style={{ color: '#FF6A00' }} fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
                 </div>
-                <span className="text-sm" style={{ color: '#9CA3AF' }}>
-                  Trusted by SaaS founders and scaling businesses
+                <span className="text-xs sm:text-sm font-medium tracking-wide" style={{ color: '#6B7280' }}>
+                  Trusted by 50+ SaaS founders & scaling businesses
                 </span>
               </div>
             </div>
 
             {/* ── RIGHT: Portrait Image ── */}
-            <div className="flex items-center justify-center lg:justify-end mt-10 lg:mt-0">
-              <div className="relative" style={{ isolation: 'isolate' }}>
+            <div className="flex items-center justify-center lg:justify-end mt-12 lg:mt-0 order-last lg:order-none">
+              <div className="relative w-full max-w-[320px] xs:max-w-[360px] sm:max-w-[420px]" style={{ isolation: 'isolate' }}>
 
                 {/* Deep radial glow behind photo */}
                 <div
                   className="absolute pointer-events-none"
                   style={{
-                    inset: '-60px',
+                    inset: '-40px',
                     background:
                       'radial-gradient(ellipse 70% 75% at 50% 58%, rgba(255,106,0,0.28) 0%, rgba(255,106,0,0.1) 45%, transparent 72%)',
                     zIndex: -1,
@@ -131,19 +131,17 @@ export default function HomePage() {
                   className="animate-float"
                   style={{
                     filter:
-                      'drop-shadow(0 0 28px rgba(255,106,0,0.55)) drop-shadow(0 0 80px rgba(255,106,0,0.18))',
+                      'drop-shadow(0 0 20px rgba(255,106,0,0.4)) drop-shadow(0 0 60px rgba(255,106,0,0.15))',
                   }}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/noorulain.webp"
                     alt="Noor ul Ain — AI Automation Strategist"
+                    className="w-full h-auto rounded-[24px] sm:rounded-[28px] border-[1.5px]"
                     style={{
                       display: 'block',
-                      width: '100%',
-                      maxWidth: '420px',
-                      borderRadius: '28px',
-                      border: '1.5px solid rgba(255,106,0,0.3)',
+                      borderColor: 'rgba(255,106,0,0.3)',
                       objectFit: 'cover',
                       objectPosition: 'top',
                     }}
@@ -162,10 +160,10 @@ export default function HomePage() {
 
                 {/* Floating chip — top right */}
                 <div
-                  className="absolute -top-4 -right-5 px-4 py-2 rounded-xl text-xs font-bold text-white"
+                  className="absolute -top-3 -right-3 sm:-top-4 sm:-right-5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-[10px] sm:text-xs font-bold text-white shadow-lg"
                   style={{
                     background: 'linear-gradient(135deg, #FF8C1A, #FF4D00)',
-                    boxShadow: '0 0 20px rgba(255,106,0,0.55)',
+                    boxShadow: '0 0 20px rgba(255,106,0,0.4)',
                     whiteSpace: 'nowrap',
                     zIndex: 10,
                   }}
@@ -175,10 +173,9 @@ export default function HomePage() {
 
                 {/* Floating chip — bottom left */}
                 <div
-                  className="absolute -bottom-4 -left-5 px-4 py-2 rounded-xl text-xs font-bold text-white glass"
+                  className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl text-[10px] sm:text-xs font-bold text-white glass shadow-lg"
                   style={{
                     border: '1px solid rgba(255,106,0,0.35)',
-                    boxShadow: '0 0 20px rgba(0,0,0,0.55)',
                     whiteSpace: 'nowrap',
                     zIndex: 10,
                   }}
@@ -201,12 +198,12 @@ export default function HomePage() {
         style={{ borderColor: 'rgba(255,255,255,0.06)', background: 'rgba(26,26,31,0.5)' }}
       >
         <div className="container-custom">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {stats.map((stat, i) => (
-              <div key={i} className="text-center">
-                <p className="text-4xl font-black mb-1 text-gradient-orange">{stat.value}</p>
-                <p className="text-sm font-semibold text-white mb-1">{stat.label}</p>
-                <p className="text-xs" style={{ color: '#6B7280' }}>{stat.desc}</p>
+              <div key={i} className="text-center group p-4 sm:p-0">
+                <p className="text-4xl sm:text-5xl font-black mb-2 text-gradient-orange transition-transform group-hover:scale-110 duration-300">{stat.value}</p>
+                <p className="text-sm font-bold text-white mb-2 uppercase tracking-widest">{stat.label}</p>
+                <p className="text-xs sm:text-sm leading-relaxed max-w-[200px] mx-auto" style={{ color: '#6B7280' }}>{stat.desc}</p>
               </div>
             ))}
           </div>
@@ -218,32 +215,36 @@ export default function HomePage() {
       ═══════════════════════════════════════ */}
       <section className="section-pad">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <div className="text-center mb-20 lg:mb-24">
             <p className="section-label justify-center">What I Build</p>
-            <h2 className="text-4xl lg:text-5xl font-black text-white mb-5">
+            <h2 className="mb-6">
               AI Automation Services
             </h2>
-            <p className="max-w-xl mx-auto text-lg" style={{ color: '#9CA3AF' }}>
+            <p className="max-w-2xl mx-auto text-lg sm:text-xl" style={{ color: '#9CA3AF' }}>
               High-ticket automation systems designed to deliver measurable ROI — from day one.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {services.slice(0, 3).map((service) => (
-              <div key={service.id} className="card p-8 group">
-                <div className="text-4xl mb-5">{service.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-gradient-orange transition-all">
+              <div key={service.id} className="card p-8 sm:p-10 group flex flex-col">
+                <div className="icon-box">
+                  {service.icon}
+                </div>
+                <h3 className="mb-4 group-hover:text-gradient-orange transition-all">
                   {service.title}
                 </h3>
-                <p className="text-sm leading-relaxed mb-5" style={{ color: '#9CA3AF' }}>
-                  {service.solution.slice(0, 120)}...
+                <p className="text-sm sm:text-base leading-relaxed mb-8 flex-1" style={{ color: '#9CA3AF' }}>
+                  {service.solution.slice(0, 130)}...
                 </p>
-                <div className="flex flex-wrap gap-2 mb-5">
+                <div className="flex flex-wrap gap-2.5 mb-8">
                   {service.tools.slice(0, 3).map((tool) => (
                     <span key={tool} className="tag">{tool}</span>
                   ))}
                 </div>
-                <p className="text-sm font-bold" style={{ color: '#FF6A00' }}>{service.price}</p>
+                <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-between">
+                  <p className="price-tag">{service.price}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -300,22 +301,22 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {caseStudies.map((study) => (
-              <div key={study.id} className="card p-8 flex flex-col">
+              <div key={study.id} className="card p-6 sm:p-8 flex flex-col">
                 <div className="flex items-center justify-between mb-6">
                   <span className="tag">{study.industry}</span>
-                  <span className="text-xs" style={{ color: '#6B7280' }}>{study.client}</span>
+                  <span className="text-[10px] uppercase tracking-wider font-bold" style={{ color: '#6B7280' }}>{study.client}</span>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-4">{study.client} Automation</h3>
-                <p className="text-sm leading-relaxed mb-6 flex-1" style={{ color: '#9CA3AF' }}>
-                  {study.problem.slice(0, 100)}...
+                <h3 className="mb-4">{study.client} Automation</h3>
+                <p className="text-sm sm:text-base leading-relaxed mb-8 flex-1" style={{ color: '#9CA3AF' }}>
+                  {study.problem.slice(0, 120)}...
                 </p>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-auto">
                   {study.results.slice(0, 2).map((result, i) => (
-                    <div key={i} className="highlight-box text-center">
-                      <p className="font-black text-xl" style={{ color: '#FF6A00' }}>{result.value}</p>
-                      <p className="text-xs mt-1" style={{ color: '#9CA3AF' }}>{result.metric}</p>
+                    <div key={i} className="highlight-box flex flex-col items-center justify-center text-center p-3 sm:p-4">
+                      <p className="font-black text-lg sm:text-xl" style={{ color: '#FF6A00' }}>{result.value}</p>
+                      <p className="text-[9px] sm:text-[10px] uppercase tracking-tighter mt-1" style={{ color: '#9CA3AF' }}>{result.metric}</p>
                     </div>
                   ))}
                 </div>

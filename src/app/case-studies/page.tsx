@@ -14,17 +14,19 @@ export default function CaseStudiesPage() {
     return (
         <>
             {/* HERO */}
-            <section className="pt-32 pb-20 relative overflow-hidden tech-grid">
+            <section className="section-pad relative overflow-hidden tech-grid pt-32 lg:pt-48">
                 <div className="absolute inset-0 gradient-radial-orange pointer-events-none" />
-                <div className="container-custom relative z-10 text-center max-w-3xl mx-auto">
-                    <p className="section-label justify-center">Case Studies</p>
-                    <h1 className="text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
-                        Real Businesses.{' '}
-                        <span className="text-gradient-orange">Real Results.</span>
-                    </h1>
-                    <p className="text-xl leading-relaxed" style={{ color: '#9CA3AF' }}>
-                        Every automation project is backed by measurable outcomes. Here's what happens when intelligent systems replace manual work.
-                    </p>
+                <div className="container-custom relative z-10 text-center">
+                    <div className="max-w-3xl mx-auto">
+                        <p className="section-label justify-center">Case Studies</p>
+                        <h1 className="mb-6">
+                            Real Businesses.{' '}
+                            <span className="text-gradient-orange">Real Results.</span>
+                        </h1>
+                        <p className="text-base sm:text-lg lg:text-xl leading-relaxed" style={{ color: '#9CA3AF' }}>
+                            Every automation project is backed by measurable outcomes. Here's what happens when intelligent systems replace manual work.
+                        </p>
+                    </div>
                 </div>
             </section>
 
@@ -72,13 +74,13 @@ export default function CaseStudiesPage() {
 
                             {/* Results */}
                             <div>
-                                <h3 className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: '#FF6A00' }}>✅ Measurable Results</h3>
-                                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                                <h3 className="text-[10px] font-bold uppercase tracking-widest mb-6" style={{ color: '#FF6A00' }}>✅ Measurable Results</h3>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                                     {study.results.map((result, j) => (
-                                        <div key={j} className="highlight-box text-center py-6">
+                                        <div key={j} className="highlight-box flex flex-col items-center justify-center text-center py-6 px-4">
                                             <p className="text-3xl font-black text-gradient-orange mb-2">{result.value}</p>
-                                            <p className="text-sm font-bold text-white mb-1">{result.metric}</p>
-                                            <p className="text-xs" style={{ color: '#6B7280' }}>{result.description}</p>
+                                            <p className="text-[10px] sm:text-xs font-bold text-white mb-1 uppercase tracking-wider">{result.metric}</p>
+                                            <p className="text-[10px] sm:text-xs italic" style={{ color: '#6B7280' }}>({result.description})</p>
                                         </div>
                                     ))}
                                 </div>
