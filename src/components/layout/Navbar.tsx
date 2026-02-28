@@ -16,6 +16,18 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Lock scroll when mobile menu is open
+    useEffect(() => {
+        if (isMobileOpen) {
+            document.body.style.overflow = 'hidden';
+            // Prevent layout shift by adding padding if scrollbar is visible
+            document.body.style.paddingRight = '0px';
+        } else {
+            document.body.style.overflow = 'unset';
+            document.body.style.paddingRight = '0px';
+        }
+    }, [isMobileOpen]);
+
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'glass border-b border-white/5 py-2 lg:py-3' : 'bg-transparent py-3 lg:py-5'
@@ -34,7 +46,7 @@ export default function Navbar() {
                 </Link>
 
                 {/* Desktop Nav */}
-                <ul className="hidden md:flex items-center gap-1">
+                <ul className="hidden lg:flex items-center gap-1">
                     {NAV_ITEMS.map((item) => (
                         <li key={item.href}>
                             <Link
@@ -52,7 +64,7 @@ export default function Navbar() {
                 </ul>
 
                 {/* CTA Button */}
-                <div className="hidden md:flex items-center gap-3">
+                <div className="hidden lg:flex items-center gap-3">
                     <a href={SITE_CONFIG.calendly} target="_blank" rel="noopener noreferrer" className="btn-orange text-sm">
                         <span>Book Strategy Call</span>
                     </a>
@@ -60,56 +72,85 @@ export default function Navbar() {
 
                 {/* Mobile Hamburger */}
                 <button
-                    onClick={() => setIsMobileOpen(!isMobileOpen)}
-                    className="md:hidden p-2 rounded-lg text-white/80 hover:text-white transition-colors relative z-50 w-10 h-10 flex items-center justify-center bg-white/5 border border-white/10"
-                    aria-label="Toggle navigation"
+                    onClick={() => setIsMobileOpen(true)}
+                    className="lg:hidden p-2 rounded-lg text-white/80 hover:text-white transition-colors relative z-50 w-10 h-10 flex items-center justify-center bg-white/5 border border-white/10"
+                    aria-label="Open navigation"
                 >
-                    <div className="w-6 relative h-5">
-                        <span className={`absolute h-0.5 w-full bg-current transition-all duration-300 left-0 ${isMobileOpen ? 'rotate-45 top-2' : 'top-0'}`} />
-                        <span className={`absolute h-0.5 w-full bg-current transition-all duration-300 left-0 top-2 ${isMobileOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'}`} />
-                        <span className={`absolute h-0.5 w-full bg-current transition-all duration-300 left-0 ${isMobileOpen ? '-rotate-45 top-2' : 'top-4'}`} />
+                    <div className="w-6 relative h-5 flex flex-col justify-between">
+                        <span className="h-0.5 w-full bg-current rounded-full" />
+                        <span className="h-0.5 w-4/5 bg-current rounded-full ml-auto" />
+                        <span className="h-0.5 w-full bg-current rounded-full" />
                     </div>
                 </button>
             </nav>
 
-            {/* Mobile Menu */}
+            {/* Backdrop Overlay */}
             <div
-                className={`md:hidden fixed inset-0 z-40 bg-black/98 backdrop-blur-2xl transition-all duration-500 ease-in-out ${isMobileOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
+                className={`lg:hidden fixed inset-0 z-[60] bg-black/70 backdrop-blur-sm transition-all duration-300 ease-in-out ${isMobileOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                    }`}
+                onClick={() => setIsMobileOpen(false)}
+            />
+
+            {/* Left Side Sidebar (Off-canvas) */}
+            <aside
+                className={`lg:hidden fixed top-0 left-0 bottom-0 z-[70] w-[80%] max-w-[380px] bg-[#0D0D10] border-r border-white/5 shadow-2xl transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${isMobileOpen ? 'translate-x-0' : '-translate-x-full'
                     }`}
             >
-                <div className="flex flex-col items-center justify-center min-h-[80vh] px-8 pt-24 pb-12 gap-6">
-                    {NAV_ITEMS.map((item, idx) => (
-                        <Link
-                            key={item.href}
-                            href={item.href}
+                <div className="flex flex-col h-full p-6 sm:p-8 relative">
+                    {/* Sidebar Header */}
+                    <div className="flex items-center justify-between mb-12">
+                        <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 rounded-lg flex items-center justify-center font-black text-white text-xs" style={{ background: 'linear-gradient(135deg, #FF8C1A, #FF4D00)' }}>
+                                NA
+                            </div>
+                            <span className="text-white font-bold text-sm tracking-tight">Noor ul Ain</span>
+                        </div>
+                        <button
                             onClick={() => setIsMobileOpen(false)}
-                            className={`text-3xl font-black transition-all duration-300 tracking-tight ${pathname === item.href
-                                ? 'text-gradient-orange opacity-100'
-                                : 'text-white/60 hover:text-white'
-                                }`}
-                            style={{
-                                transitionDelay: `${idx * 70}ms`,
-                                transform: isMobileOpen ? 'translateY(0)' : 'translateY(40px)',
-                                opacity: isMobileOpen ? 1 : 0
-                            }}
+                            className="w-10 h-10 rounded-full flex items-center justify-center bg-white/5 text-white/60 hover:text-white transition-colors border border-white/10"
+                            aria-label="Close navigation"
                         >
-                            {item.label}
-                        </Link>
-                    ))}
-                    <div
-                        className="w-full pt-8 border-t border-white/10 flex flex-col gap-4"
-                        style={{
-                            transitionDelay: `${NAV_ITEMS.length * 50}ms`,
-                            transform: isMobileOpen ? 'translateY(0)' : 'translateY(20px)',
-                            opacity: isMobileOpen ? 1 : 0
-                        }}
-                    >
-                        <a href={SITE_CONFIG.calendly} target="_blank" rel="noopener noreferrer" className="btn-orange text-lg py-5">
-                            <span>Book Strategy Call</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
+
+                    {/* Navigation Links */}
+                    <nav className="flex-1 space-y-1.5 overflow-y-auto pr-2">
+                        {NAV_ITEMS.map((item) => (
+                            <Link
+                                key={item.href}
+                                href={item.href}
+                                onClick={() => setIsMobileOpen(false)}
+                                className={`block py-3 px-4 rounded-xl text-lg font-bold transition-all duration-200 ${pathname === item.href
+                                    ? 'bg-orange-500/10 text-orange-400'
+                                    : 'text-white/60 hover:text-white hover:bg-white/5'
+                                    }`}
+                            >
+                                {item.label}
+                            </Link>
+                        ))}
+                    </nav>
+
+                    {/* Bottom CTA */}
+                    <div className="pt-8 border-t border-white/10 mt-auto">
+                        <a
+                            href={SITE_CONFIG.calendly}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-orange w-full py-4 text-sm justify-center"
+                            onClick={() => setIsMobileOpen(false)}
+                        >
+                            <span>Book Strategy Call →</span>
                         </a>
+                        <p className="text-center text-[9px] uppercase tracking-[0.2em] text-gray-600 mt-6 font-bold">
+                            AI Automation Expert
+                        </p>
                     </div>
                 </div>
-            </div>
+            </aside>
         </header>
     );
 }
