@@ -29,7 +29,7 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════
           HERO SECTION — Two Column Layout
       ═══════════════════════════════════════ */}
-      <section className="relative min-h-screen flex items-center pt-40 pb-24 lg:pt-56 lg:pb-32 overflow-hidden tech-grid text-balance">
+      <section className="relative min-h-screen flex items-center pt-32 pb-24 lg:pt-56 lg:pb-32 overflow-hidden tech-grid text-balance">
 
         {/* Background ambient glows */}
         <div className="absolute inset-0 gradient-radial-orange pointer-events-none" />
@@ -49,71 +49,11 @@ export default function HomePage() {
         </div>
 
         <div className="container-custom relative z-10 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
-            {/* ── LEFT: Headline + CTAs ── */}
-            <div className="flex flex-col items-center lg:items-start text-center lg:text-left pt-8 lg:pt-0">
-              {/* Status badge */}
-              <div
-                className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full text-[10px] xs:text-xs sm:text-sm font-medium animate-fade-in-up"
-                style={{ background: 'rgba(255,106,0,0.1)', border: '1px solid rgba(255,106,0,0.25)', color: '#FF8C1A' }}
-              >
-                <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#FF6A00' }} />
-                Available for New Projects · AI Automation Consulting
-              </div>
-
-              {/* H1 */}
-              <h1 className="mb-8 animate-fade-in-up delay-100 max-w-2xl">
-                Building{' '}
-                <span className="text-gradient-orange whitespace-nowrap">Intelligent AI</span>
-                <br className="hidden sm:block" />
-                <span className="block sm:inline"> Automation Systems</span>
-                <br className="hidden lg:block" />
-                <span className="block text-white mt-2 lg:mt-0">That Scale Businesses</span>
-              </h1>
-
-              <p
-                className="text-base sm:text-lg lg:text-xl leading-relaxed mb-12 max-w-xl animate-fade-in-up delay-200"
-                style={{ color: '#9CA3AF' }}
-              >
-                Helping startups and growing companies eliminate manual work using{' '}
-                <span className="text-white font-semibold">n8n</span>,{' '}
-                <span className="text-white font-semibold">LLM integrations</span>, and scalable SaaS
-                architectures. I design systems that work 24/7 — so your team doesn&apos;t have to.
-              </p>
-
-              <div className="flex flex-col sm:flex-row items-center gap-5 w-full sm:w-auto animate-fade-in-up delay-300">
-                <a
-                  href={SITE_CONFIG.calendly}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-orange"
-                >
-                  <span>Book Strategy Call →</span>
-                </a>
-                <Link href="/case-studies" className="btn-ghost">
-                  View Case Studies
-                </Link>
-              </div>
-
-              {/* Social proof */}
-              <div className="mt-16 lg:mt-20 flex flex-col sm:flex-row items-center gap-5 animate-fade-in-up delay-400">
-                <div className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/5 bg-white/2">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-3.5 h-3.5" style={{ color: '#FF6A00' }} fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <span className="text-xs sm:text-sm font-medium tracking-wide" style={{ color: '#6B7280' }}>
-                  Trusted by 50+ SaaS founders & scaling businesses
-                </span>
-              </div>
-            </div>
-
-            {/* ── RIGHT: Portrait Image ── */}
-            <div className="flex items-center justify-center lg:justify-end mt-12 lg:mt-0 order-last lg:order-none">
-              <div className="relative w-full max-w-[320px] xs:max-w-[360px] sm:max-w-[420px]" style={{ isolation: 'isolate' }}>
+            {/* ── RIGHT: Portrait Image (Order first on mobile) ── */}
+            <div className="flex items-center justify-center lg:justify-end order-first lg:order-last mb-10 lg:mb-0">
+              <div className="relative w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[420px]" style={{ isolation: 'isolate' }}>
 
                 {/* Deep radial glow behind photo */}
                 <div
@@ -183,6 +123,66 @@ export default function HomePage() {
                   ⚡ n8n &amp; LLM Architect
                 </div>
 
+              </div>
+            </div>
+
+            {/* ── LEFT: Headline + CTAs ── */}
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+              {/* Status badge */}
+              <div
+                className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full text-[10px] xs:text-xs sm:text-sm font-medium animate-fade-in-up"
+                style={{ background: 'rgba(255,106,0,0.1)', border: '1px solid rgba(255,106,0,0.25)', color: '#FF8C1A' }}
+              >
+                <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#FF6A00' }} />
+                Available for New Projects · AI Automation Consulting
+              </div>
+
+              {/* H1 */}
+              <h1 className="mb-6 lg:mb-8 animate-fade-in-up delay-100 max-w-2xl text-[28px] xs:text-[32px] sm:text-5xl lg:text-7xl leading-[1.2] lg:leading-[1.1]">
+                Building{' '}
+                <span className="text-gradient-orange sm:whitespace-nowrap">Intelligent AI</span>
+                <br className="hidden sm:block" />
+                <span className="block sm:inline"> Automation Systems</span>
+                <br className="hidden lg:block" />
+                <span className="block text-white mt-2 lg:mt-0">That Scale Businesses</span>
+              </h1>
+
+              <p
+                className="text-base sm:text-lg lg:text-xl leading-relaxed mb-6 lg:mb-12 max-w-xl animate-fade-in-up delay-200"
+                style={{ color: '#9CA3AF' }}
+              >
+                Helping startups and growing companies eliminate manual work using{' '}
+                <span className="text-white font-semibold">n8n</span>,{' '}
+                <span className="text-white font-semibold">LLM integrations</span>, and scalable SaaS
+                architectures. I design systems that work 24/7 — so your team doesn&apos;t have to.
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-center gap-5 w-full sm:w-auto animate-fade-in-up delay-300">
+                <a
+                  href={SITE_CONFIG.calendly}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-orange w-full sm:w-auto text-center justify-center"
+                >
+                  <span>Book Strategy Call →</span>
+                </a>
+                <Link href="/case-studies" className="btn-ghost w-full sm:w-auto text-center justify-center">
+                  View Case Studies
+                </Link>
+              </div>
+
+              {/* Social proof */}
+              <div className="mt-8 lg:mt-20 flex flex-col sm:flex-row items-center gap-5 animate-fade-in-up delay-400">
+                <div className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/5 bg-white/2">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-3.5 h-3.5" style={{ color: '#FF6A00' }} fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <span className="text-xs sm:text-sm font-medium tracking-wide" style={{ color: '#6B7280' }}>
+                  Trusted by 50+ SaaS founders & scaling businesses
+                </span>
               </div>
             </div>
 

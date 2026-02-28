@@ -34,7 +34,7 @@ export default function ContactClient() {
                 <div className="container-custom relative z-10 text-center">
                     <div className="max-w-3xl mx-auto">
                         <p className="section-label justify-center">Contact</p>
-                        <h1 className="mb-6">
+                        <h1 className="mb-6 text-[28px] xs:text-[32px] sm:text-5xl lg:text-7xl leading-[1.2] lg:leading-[1.1]">
                             Let&apos;s Build Something{' '}
                             <span className="text-gradient-orange">Intelligent</span>
                         </h1>
@@ -192,7 +192,7 @@ export default function ContactClient() {
                         {/* Sidebar */}
                         <div className="lg:col-span-2 space-y-6">
                             {/* Book Call */}
-                            <div className="card p-7 relative overflow-hidden">
+                            <div className="card p-7 relative">
                                 <div
                                     className="absolute inset-0 pointer-events-none"
                                     style={{

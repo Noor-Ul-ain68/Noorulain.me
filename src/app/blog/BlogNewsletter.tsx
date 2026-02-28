@@ -7,7 +7,7 @@ export default function BlogNewsletter() {
 
     return (
         <div
-            className="relative overflow-hidden rounded-2xl p-10 text-center"
+            className="relative rounded-2xl p-10 text-center"
             style={{ background: 'rgba(26,26,31,0.8)', border: '1px solid rgba(255,106,0,0.15)' }}
         >
             <div

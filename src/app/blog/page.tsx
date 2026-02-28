@@ -32,7 +32,7 @@ export default function BlogPage() {
                 <div className="absolute inset-0 gradient-radial-orange pointer-events-none" />
                 <div className="container-custom relative z-10 text-center max-w-3xl mx-auto">
                     <p className="section-label justify-center">Blog</p>
-                    <h1 className="text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
+                    <h1 className="text-[28px] xs:text-[32px] sm:text-5xl lg:text-7xl font-black text-white mb-6 leading-[1.2] lg:leading-[1.1]">
                         AI Automation{' '}
                         <span className="text-gradient-orange">Insights &amp; Strategies</span>
                     </h1>

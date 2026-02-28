@@ -18,7 +18,7 @@ export default function Navbar() {
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'glass border-b border-white/5 py-3' : 'bg-transparent py-5'
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'glass border-b border-white/5 py-2 lg:py-3' : 'bg-transparent py-3 lg:py-5'
                 }`}
         >
             <nav className="container-custom flex items-center justify-between">
@@ -74,16 +74,16 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             <div
-                className={`md:hidden fixed inset-0 z-40 bg-black/95 backdrop-blur-xl transition-all duration-500 ease-in-out ${isMobileOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
+                className={`md:hidden fixed inset-0 z-40 bg-black/98 backdrop-blur-2xl transition-all duration-500 ease-in-out ${isMobileOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
                     }`}
             >
-                <div className="flex flex-col items-center justify-center min-h-screen px-6 py-20 gap-8">
+                <div className="flex flex-col items-center justify-center min-h-[80vh] px-8 pt-24 pb-12 gap-6">
                     {NAV_ITEMS.map((item, idx) => (
                         <Link
                             key={item.href}
                             href={item.href}
                             onClick={() => setIsMobileOpen(false)}
-                            className={`text-4xl font-black transition-all duration-300 tracking-tighter ${pathname === item.href
+                            className={`text-3xl font-black transition-all duration-300 tracking-tight ${pathname === item.href
                                 ? 'text-gradient-orange opacity-100'
                                 : 'text-white/60 hover:text-white'
                                 }`}

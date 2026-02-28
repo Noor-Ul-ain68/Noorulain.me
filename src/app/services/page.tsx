@@ -26,7 +26,7 @@ export default function ServicesPage() {
                 <div className="container-custom relative z-10 text-center">
                     <div className="max-w-3xl mx-auto">
                         <span className="section-label justify-center">Services</span>
-                        <h1 className="mb-6">
+                        <h1 className="mb-6 text-[28px] xs:text-[32px] sm:text-5xl lg:text-7xl leading-[1.2] lg:leading-[1.1]">
                             High-Ticket AI Automation{' '}
                             <span className="text-gradient-orange">Consulting Services</span>
                         </h1>
@@ -105,7 +105,7 @@ export default function ServicesPage() {
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {process.map((step, i) => (
-                            <div key={i} className="card p-8 group overflow-hidden">
+                            <div key={i} className="card p-8 group">
                                 <p className="text-6xl font-black mb-4 transition-transform group-hover:scale-110 duration-500" style={{ color: 'rgba(255,106,0,0.15)', lineHeight: 1 }}>{step.step}</p>
                                 <h3 className="mb-3">{step.title}</h3>
                                 <p className="text-sm sm:text-base leading-relaxed" style={{ color: '#9CA3AF' }}>{step.desc}</p>

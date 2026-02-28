@@ -33,7 +33,7 @@ export default function AboutPage() {
                 <div className="container-custom relative z-10">
                     <div className="max-w-3xl flex flex-col items-center text-center lg:items-start lg:text-left">
                         <p className="section-label">About</p>
-                        <h1 className="mb-6">
+                        <h1 className="mb-6 text-[28px] xs:text-[32px] sm:text-5xl lg:text-7xl leading-[1.2] lg:leading-[1.1]">
                             The AI Automation Strategist{' '}
                             <span className="text-gradient-orange">Behind the Systems</span>
                         </h1>
@@ -116,7 +116,7 @@ export default function AboutPage() {
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {expertise.map((item, i) => (
-                            <div key={i} className="card p-8 group overflow-hidden">
+                            <div key={i} className="card p-8 group">
                                 <div className="text-4xl mb-5 transition-transform group-hover:translate-x-2 duration-300">{item.icon}</div>
                                 <h3 className="mb-3">{item.title}</h3>
                                 <p className="text-sm sm:text-base leading-relaxed" style={{ color: '#9CA3AF' }}>{item.desc}</p>

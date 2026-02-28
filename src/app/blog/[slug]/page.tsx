@@ -66,7 +66,7 @@ export default async function BlogPostPage({ params }: Props) {
                         </Link>
                     </div>
                     <span className="tag mb-5 inline-block">{post.category}</span>
-                    <h1 className="text-4xl lg:text-5xl font-black text-white mb-6 leading-tight">{post.title}</h1>
+                    <h1 className="text-[28px] xs:text-[32px] sm:text-5xl lg:text-7xl font-black text-white mb-6 leading-[1.2] lg:leading-[1.1]">{post.title}</h1>
                     <div className="flex flex-wrap items-center gap-5 text-sm" style={{ color: '#6B7280' }}>
                         <span className="flex items-center gap-2">
                             <div className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white" style={{ background: 'linear-gradient(135deg, #FF8C1A, #FF4D00)' }}>N</div>
@@ -101,7 +101,7 @@ export default async function BlogPostPage({ params }: Props) {
                             </div>
 
                             {/* Author CTA */}
-                            <div className="card p-8 mt-10 relative overflow-hidden">
+                            <div className="card p-8 mt-10 relative">
                                 <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 80% at 0% 100%, rgba(255,106,0,0.07) 0%, transparent 70%)' }} />
                                 <div className="relative z-10 flex flex-col sm:flex-row gap-6 items-start">
                                     <div className="w-14 h-14 rounded-xl shrink-0 flex items-center justify-center text-xl font-black text-white" style={{ background: 'linear-gradient(135deg, #FF8C1A, #FF4D00)' }}>NA</div>

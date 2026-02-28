@@ -19,7 +19,7 @@ export default function CaseStudiesPage() {
                 <div className="container-custom relative z-10 text-center">
                     <div className="max-w-3xl mx-auto">
                         <p className="section-label justify-center">Case Studies</p>
-                        <h1 className="mb-6">
+                        <h1 className="mb-6 text-[28px] xs:text-[32px] sm:text-5xl lg:text-7xl leading-[1.2] lg:leading-[1.1]">
                             Real Businesses.{' '}
                             <span className="text-gradient-orange">Real Results.</span>
                         </h1>
