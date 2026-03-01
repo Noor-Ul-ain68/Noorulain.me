@@ -161,7 +161,7 @@
     color: white;
     font-weight: 800;
     border-radius: 12px;
-    padding: 16px 40px;
+    padding: 10px 24px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -172,7 +172,7 @@
     position: relative;
     overflow: hidden;
     text-decoration: none;
-    min-height: 56px;
+    min-height: 44px;
     width: 100%;
     letter-spacing: 0.02em;
     box-shadow: 0 10px 20px -10px rgba(255, 106, 0, 0.4);
@@ -212,7 +212,7 @@
     color: #FFFFFF;
     font-weight: 800;
     border-radius: 12px;
-    padding: 16px 40px;
+    padding: 10px 24px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -221,7 +221,7 @@
     border: 1px solid rgba(255, 255, 255, 0.15);
     cursor: pointer;
     text-decoration: none;
-    min-height: 56px;
+    min-height: 44px;
     width: 100%;
     letter-spacing: 0.02em;
   }
@@ -260,13 +260,13 @@
 
   /* SECTION PADDING - Responsive Standard */
   .section-pad {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 
   .section-pad-sm {
-    padding-top: 56px;
-    padding-bottom: 56px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 
   @media (min-width: 768px) {
@@ -283,13 +283,13 @@
 
   @media (min-width: 1280px) {
     .section-pad {
-      padding-top: 128px;
-      padding-bottom: 128px;
+      padding-top: 96px;
+      padding-bottom: 96px;
     }
 
     .section-pad-sm {
-      padding-top: 80px;
-      padding-bottom: 80px;
+      padding-top: 60px;
+      padding-bottom: 60px;
     }
   }
 

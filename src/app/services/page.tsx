@@ -21,12 +21,12 @@ export default function ServicesPage() {
     return (
         <>
             {/* HERO */}
-            <section className="section-pad relative overflow-hidden tech-grid pt-40 lg:pt-56">
+            <section className="section-pad relative overflow-hidden tech-grid pt-28 lg:pt-40">
                 <div className="absolute inset-0 gradient-radial-orange pointer-events-none" />
                 <div className="container-custom relative z-10 text-center">
                     <div className="max-w-3xl mx-auto">
                         <span className="section-label justify-center">Services</span>
-                        <h1 className="mb-6 text-[28px] xs:text-[32px] sm:text-5xl lg:text-7xl leading-[1.2] lg:leading-[1.1]">
+                        <h1 className="mb-4 text-[28px] xs:text-[32px] sm:text-5xl lg:text-7xl leading-[1.2] lg:leading-[1.1]">
                             High-Ticket AI Automation{' '}
                             <span className="text-gradient-orange">Consulting Services</span>
                         </h1>
@@ -40,17 +40,17 @@ export default function ServicesPage() {
             {/* SERVICES LIST */}
             <section className="section-pad">
                 <div className="container-custom">
-                    <div className="space-y-8">
+                    <div className="space-y-6">
                         {services.map((service, i) => (
-                            <div key={service.id} id={service.id} className="card p-8 sm:p-10 md:p-12 scroll-mt-24">
-                                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
+                            <div key={service.id} id={service.id} className="card p-6 sm:p-8 md:p-10 scroll-mt-24">
+                                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-12">
                                     {/* Left */}
                                     <div className="lg:col-span-1">
                                         <div className="icon-box">
                                             {service.icon}
                                         </div>
                                         <h2 className="mb-4 text-3xl lg:text-4xl">{service.title}</h2>
-                                        <div className="mb-8">
+                                        <div className="mb-6">
                                             <p className="price-tag mb-0">{service.price}</p>
                                         </div>
                                         <div className="flex flex-wrap gap-2.5">
@@ -77,7 +77,7 @@ export default function ServicesPage() {
                                     </div>
                                 </div>
 
-                                <div className="divider my-10 opacity-30" />
+                                <div className="divider my-6 lg:my-8 opacity-30" />
                                 <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                                     <div className="flex items-center gap-3">
                                         <div className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
@@ -96,16 +96,16 @@ export default function ServicesPage() {
             {/* PROCESS */}
             <section className="section-pad" style={{ background: 'rgba(26,26,31,0.3)' }}>
                 <div className="container-custom">
-                    <div className="text-center mb-16">
+                    <div className="text-center mb-10 lg:mb-12">
                         <p className="section-label justify-center">How It Works</p>
-                        <h2 className="text-4xl font-black text-white mb-4">The Engagement Process</h2>
+                        <h2 className="text-4xl font-black text-white mb-3">The Engagement Process</h2>
                         <p className="max-w-xl mx-auto" style={{ color: '#9CA3AF' }}>
                             A structured, transparent process designed to deliver maximum value with minimum friction.
                         </p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {process.map((step, i) => (
-                            <div key={i} className="card p-8 group">
+                            <div key={i} className="card p-6 group">
                                 <p className="text-6xl font-black mb-4 transition-transform group-hover:scale-110 duration-500" style={{ color: 'rgba(255,106,0,0.15)', lineHeight: 1 }}>{step.step}</p>
                                 <h3 className="mb-3">{step.title}</h3>
                                 <p className="text-sm sm:text-base leading-relaxed" style={{ color: '#9CA3AF' }}>{step.desc}</p>
@@ -119,11 +119,11 @@ export default function ServicesPage() {
             <section className="section-pad relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,106,0,0.08) 0%, transparent 70%)' }} />
                 <div className="container-custom relative z-10 text-center max-w-2xl mx-auto">
-                    <h2 className="text-4xl font-black text-white mb-5">
+                    <h2 className="text-4xl font-black text-white mb-4">
                         Ready to Discuss Your{' '}
                         <span className="text-gradient-orange">Automation Project?</span>
                     </h2>
-                    <p className="text-lg mb-8" style={{ color: '#9CA3AF' }}>
+                    <p className="text-lg mb-6" style={{ color: '#9CA3AF' }}>
                         Book a no-obligation 30-minute strategy call. We'll identify your highest-ROI automation opportunity and give you a clear implementation roadmap.
                     </p>
                     <a href={SITE_CONFIG.calendly} target="_blank" rel="noopener noreferrer" className="btn-orange text-lg px-10 py-5">

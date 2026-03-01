@@ -20,20 +20,20 @@ const FooterLinks = {
 export default function Footer() {
     return (
         <footer className="border-t" style={{ borderColor: 'rgba(255,255,255,0.06)', background: '#0D0D10' }}>
-            <div className="container-custom py-12 lg:py-16">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+            <div className="container-custom py-10 lg:py-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
                     {/* Brand Column */}
                     <div className="lg:col-span-2 flex flex-col items-center text-center lg:items-start lg:text-left">
-                        <Link href="/" className="flex items-center gap-3 mb-4 w-fit">
-                            <div className="w-10 h-10 rounded-lg flex items-center justify-center font-black text-white" style={{ background: 'linear-gradient(135deg, #FF8C1A, #FF4D00)' }}>
+                        <Link href="/" className="flex items-center gap-3 mb-3 w-fit">
+                            <div className="w-9 h-9 rounded-lg flex items-center justify-center font-black text-white text-xs" style={{ background: 'linear-gradient(135deg, #FF8C1A, #FF4D00)' }}>
                                 NA
                             </div>
                             <div className="text-left">
-                                <p className="text-white font-bold">Noor ul Ain</p>
-                                <p className="text-xs" style={{ color: '#FF6A00' }}>AI Automation Strategist</p>
+                                <p className="text-white font-bold text-sm">Noor ul Ain</p>
+                                <p className="text-[10px]" style={{ color: '#FF6A00' }}>AI Automation Strategist</p>
                             </div>
                         </Link>
-                        <p className="text-sm leading-relaxed mb-6 max-w-sm" style={{ color: '#9CA3AF' }}>
+                        <p className="text-sm leading-relaxed mb-4 max-w-sm" style={{ color: '#9CA3AF' }}>
                             Building intelligent AI automation systems that eliminate manual work and scale businesses. Expert in n8n, LLM integrations, and SaaS architecture.
                         </p>
                         <div className="flex items-center gap-3 mb-8 lg:mb-0">

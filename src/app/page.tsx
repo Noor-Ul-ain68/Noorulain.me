@@ -29,7 +29,7 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════
           HERO SECTION — Two Column Layout
       ═══════════════════════════════════════ */}
-      <section className="relative min-h-screen flex items-center pt-32 pb-24 lg:pt-56 lg:pb-32 overflow-hidden tech-grid text-balance">
+      <section className="relative flex items-center pt-20 pb-12 lg:pt-32 lg:pb-20 overflow-hidden tech-grid text-balance">
 
         {/* Background ambient glows */}
         <div className="absolute inset-0 gradient-radial-orange pointer-events-none" />
@@ -49,10 +49,10 @@ export default function HomePage() {
         </div>
 
         <div className="container-custom relative z-10 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
 
             {/* ── RIGHT: Portrait Image (Order first on mobile) ── */}
-            <div className="flex items-center justify-center lg:justify-end order-first lg:order-last mb-10 lg:mb-0">
+            <div className="flex items-center justify-center lg:justify-end order-first lg:order-last mb-8 lg:mb-0">
               <div className="relative w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[420px]" style={{ isolation: 'isolate' }}>
 
                 {/* Deep radial glow behind photo */}
@@ -130,7 +130,7 @@ export default function HomePage() {
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
               {/* Status badge */}
               <div
-                className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full text-[10px] xs:text-xs sm:text-sm font-medium animate-fade-in-up"
+                className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full text-[10px] xs:text-xs sm:text-sm font-medium animate-fade-in-up"
                 style={{ background: 'rgba(255,106,0,0.1)', border: '1px solid rgba(255,106,0,0.25)', color: '#FF8C1A' }}
               >
                 <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#FF6A00' }} />
@@ -138,7 +138,7 @@ export default function HomePage() {
               </div>
 
               {/* H1 */}
-              <h1 className="mb-6 lg:mb-8 animate-fade-in-up delay-100 max-w-2xl text-[28px] xs:text-[32px] sm:text-5xl lg:text-7xl leading-[1.2] lg:leading-[1.1]">
+              <h1 className="mb-4 lg:mb-6 animate-fade-in-up delay-100 max-w-2xl text-[28px] xs:text-[32px] sm:text-5xl lg:text-7xl leading-[1.2] lg:leading-[1.1]">
                 Building{' '}
                 <span className="text-gradient-orange sm:whitespace-nowrap">Intelligent AI</span>
                 <br className="hidden sm:block" />
@@ -148,7 +148,7 @@ export default function HomePage() {
               </h1>
 
               <p
-                className="text-base sm:text-lg lg:text-xl leading-relaxed mb-6 lg:mb-12 max-w-xl animate-fade-in-up delay-200"
+                className="text-base sm:text-lg lg:text-xl leading-relaxed mb-5 lg:mb-8 max-w-xl animate-fade-in-up delay-200"
                 style={{ color: '#9CA3AF' }}
               >
                 Helping startups and growing companies eliminate manual work using{' '}
@@ -172,7 +172,7 @@ export default function HomePage() {
               </div>
 
               {/* Social proof */}
-              <div className="mt-8 lg:mt-20 flex flex-col sm:flex-row items-center gap-5 animate-fade-in-up delay-400">
+              <div className="mt-8 lg:mt-14 flex flex-col sm:flex-row items-center gap-5 animate-fade-in-up delay-400">
                 <div className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/5 bg-white/2">
                   {[...Array(5)].map((_, i) => (
                     <svg key={i} className="w-3.5 h-3.5" style={{ color: '#FF6A00' }} fill="currentColor" viewBox="0 0 20 20">
@@ -215,7 +215,7 @@ export default function HomePage() {
       ═══════════════════════════════════════ */}
       <section className="section-pad">
         <div className="container-custom">
-          <div className="text-center mb-20 lg:mb-24">
+          <div className="text-center mb-12 lg:mb-16">
             <p className="section-label justify-center">What I Build</p>
             <h2 className="mb-6">
               AI Automation Services
@@ -263,7 +263,7 @@ export default function HomePage() {
       <section className="section-pad-sm" style={{ background: 'rgba(26,26,31,0.3)' }}>
         <div className="container-custom">
           <p
-            className="text-center text-xs font-bold uppercase tracking-widest mb-8"
+            className="text-center text-xs font-bold uppercase tracking-widest mb-6"
             style={{ color: '#6B7280' }}
           >
             Technology Stack I Work With
@@ -291,7 +291,7 @@ export default function HomePage() {
       ═══════════════════════════════════════ */}
       <section className="section-pad">
         <div className="container-custom">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 lg:mb-12">
             <p className="section-label justify-center">Proof of Results</p>
             <h2 className="text-4xl lg:text-5xl font-black text-white mb-5">
               Real Results for Real Businesses

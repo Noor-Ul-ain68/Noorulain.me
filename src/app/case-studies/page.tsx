@@ -14,12 +14,12 @@ export default function CaseStudiesPage() {
     return (
         <>
             {/* HERO */}
-            <section className="section-pad relative overflow-hidden tech-grid pt-32 lg:pt-48">
+            <section className="section-pad relative overflow-hidden tech-grid pt-24 lg:pt-36">
                 <div className="absolute inset-0 gradient-radial-orange pointer-events-none" />
                 <div className="container-custom relative z-10 text-center">
                     <div className="max-w-3xl mx-auto">
                         <p className="section-label justify-center">Case Studies</p>
-                        <h1 className="mb-6 text-[28px] xs:text-[32px] sm:text-5xl lg:text-7xl leading-[1.2] lg:leading-[1.1]">
+                        <h1 className="mb-4 text-[28px] xs:text-[32px] sm:text-5xl lg:text-7xl leading-[1.2] lg:leading-[1.1]">
                             Real Businesses.{' '}
                             <span className="text-gradient-orange">Real Results.</span>
                         </h1>
@@ -32,11 +32,11 @@ export default function CaseStudiesPage() {
 
             {/* CASE STUDIES */}
             <section className="section-pad">
-                <div className="container-custom space-y-16">
+                <div className="container-custom space-y-10">
                     {caseStudies.map((study, i) => (
-                        <article key={study.id} id={study.id} className="card p-8 md:p-12 scroll-mt-24">
+                        <article key={study.id} id={study.id} className="card p-6 md:p-10 scroll-mt-24">
                             {/* Header */}
-                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                                 <div>
                                     <span className="tag mb-3 inline-block">{study.industry}</span>
                                     <h2 className="text-3xl font-black text-white">{study.client}</h2>
@@ -48,10 +48,10 @@ export default function CaseStudiesPage() {
                                 </div>
                             </div>
 
-                            <div className="divider mb-8" />
+                            <div className="divider mb-6" />
 
                             {/* Problem → Solution */}
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                                 <div>
                                     <h3 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: '#FF6A00' }}>🔴 The Problem</h3>
                                     <p className="text-base leading-relaxed" style={{ color: '#9CA3AF' }}>{study.problem}</p>
@@ -63,7 +63,7 @@ export default function CaseStudiesPage() {
                             </div>
 
                             {/* Tech Stack */}
-                            <div className="mb-8">
+                            <div className="mb-6">
                                 <h3 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: '#FF6A00' }}>🛠️ Tech Stack</h3>
                                 <div className="flex flex-wrap gap-2">
                                     {study.stack.map((tech) => (
@@ -95,11 +95,11 @@ export default function CaseStudiesPage() {
                 <div className="absolute inset-0 tech-grid-sm opacity-40 pointer-events-none" />
                 <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,106,0,0.08) 0%, transparent 70%)' }} />
                 <div className="container-custom relative z-10 text-center max-w-2xl mx-auto">
-                    <h2 className="text-4xl font-black text-white mb-5">
+                    <h2 className="text-4xl font-black text-white mb-4">
                         Ready to Become the{' '}
                         <span className="text-gradient-orange">Next Case Study?</span>
                     </h2>
-                    <p className="text-lg mb-8" style={{ color: '#9CA3AF' }}>
+                    <p className="text-lg mb-6" style={{ color: '#9CA3AF' }}>
                         Book a strategy call and let's identify the automation opportunities that will deliver the biggest ROI for your business.
                     </p>
                     <a href={SITE_CONFIG.calendly} target="_blank" rel="noopener noreferrer" className="btn-orange text-lg px-10 py-5">

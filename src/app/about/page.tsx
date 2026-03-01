@@ -28,16 +28,16 @@ export default function AboutPage() {
     return (
         <>
             {/* HERO */}
-            <section className="section-pad relative overflow-hidden tech-grid pt-32 lg:pt-48">
+            <section className="section-pad relative overflow-hidden tech-grid pt-24 lg:pt-36">
                 <div className="absolute inset-0 gradient-radial-orange pointer-events-none" />
                 <div className="container-custom relative z-10">
                     <div className="max-w-3xl flex flex-col items-center text-center lg:items-start lg:text-left">
                         <p className="section-label">About</p>
-                        <h1 className="mb-6 text-[28px] xs:text-[32px] sm:text-5xl lg:text-7xl leading-[1.2] lg:leading-[1.1]">
+                        <h1 className="mb-4 text-[28px] xs:text-[32px] sm:text-5xl lg:text-7xl leading-[1.2] lg:leading-[1.1]">
                             The AI Automation Strategist{' '}
                             <span className="text-gradient-orange">Behind the Systems</span>
                         </h1>
-                        <p className="text-base sm:text-lg lg:text-xl leading-relaxed mb-10" style={{ color: '#9CA3AF' }}>
+                        <p className="text-base sm:text-lg lg:text-xl leading-relaxed mb-8" style={{ color: '#9CA3AF' }}>
                             I'm Noor ul Ain — an AI Automation Strategist and Systems Architect helping SaaS companies and scaling businesses design intelligent automation that creates real competitive advantage.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
@@ -55,7 +55,7 @@ export default function AboutPage() {
             {/* STORY */}
             <section className="section-pad">
                 <div className="container-custom">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
                         {/* Visual */}
                         <div className="relative order-last lg:order-none">
                             <div className="rounded-2xl p-6 sm:p-10 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1A1A1F, #111114)', border: '1px solid rgba(255,106,0,0.2)' }}>
@@ -107,18 +107,18 @@ export default function AboutPage() {
             {/* EXPERTISE GRID */}
             <section className="section-pad" style={{ background: 'rgba(26,26,31,0.3)' }}>
                 <div className="container-custom">
-                    <div className="text-center mb-16">
+                    <div className="text-center mb-10 lg:mb-12">
                         <p className="section-label justify-center">Deep Expertise</p>
-                        <h2 className="text-4xl font-black text-white mb-4">What I Specialize In</h2>
+                        <h2 className="text-4xl font-black text-white mb-3">What I Specialize In</h2>
                         <p className="max-w-xl mx-auto" style={{ color: '#9CA3AF' }}>
                             Not a generalist. A focused specialist in AI automation systems and intelligent workflow architecture.
                         </p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {expertise.map((item, i) => (
-                            <div key={i} className="card p-8 group">
-                                <div className="text-4xl mb-5 transition-transform group-hover:translate-x-2 duration-300">{item.icon}</div>
-                                <h3 className="mb-3">{item.title}</h3>
+                            <div key={i} className="card p-6 group">
+                                <div className="text-4xl mb-4 transition-transform group-hover:translate-x-2 duration-300">{item.icon}</div>
+                                <h3 className="mb-2">{item.title}</h3>
                                 <p className="text-sm sm:text-base leading-relaxed" style={{ color: '#9CA3AF' }}>{item.desc}</p>
                             </div>
                         ))}
@@ -137,7 +137,7 @@ export default function AboutPage() {
                         <div className="space-y-6">
                             {values.map((v, i) => (
                                 <div key={i} className="card p-6 sm:p-8 flex flex-col sm:flex-row gap-6">
-                                    <div className="w-12 h-12 rounded-xl shrink-0 flex items-center justify-center font-black text-white text-xl" style={{ background: 'linear-gradient(135deg, #FF8C1A, #FF4D00)' }}>
+                                    <div className="w-10 h-10 rounded-xl shrink-0 flex items-center justify-center font-black text-white text-lg" style={{ background: 'linear-gradient(135deg, #FF8C1A, #FF4D00)' }}>
                                         {i + 1}
                                     </div>
                                     <div>
@@ -158,10 +158,10 @@ export default function AboutPage() {
                 <div className="container-custom relative z-10">
                     <div className="max-w-2xl mx-auto text-center">
                         <p className="section-label justify-center">Vision</p>
-                        <h2 className="text-4xl font-black text-white mb-6">
+                        <h2 className="text-4xl font-black text-white mb-4">
                             My Mission
                         </h2>
-                        <p className="text-xl leading-relaxed mb-8" style={{ color: '#9CA3AF' }}>
+                        <p className="text-lg leading-relaxed mb-6" style={{ color: '#9CA3AF' }}>
                             To help 100 SaaS companies and scaling businesses build AI automation systems that free them from operational slavery — creating businesses that are faster, smarter, and more profitable than their competitors.
                         </p>
                         <a href={SITE_CONFIG.calendly} target="_blank" rel="noopener noreferrer" className="btn-orange text-lg px-8 py-4">

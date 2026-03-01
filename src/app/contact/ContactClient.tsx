@@ -19,7 +19,7 @@ export default function ContactClient() {
         setSubmitted(true);
     };
 
-    const inputClass = `w-full px-5 py-3.5 rounded-lg text-sm outline-none transition-all focus:ring-1 placeholder-gray-600`;
+    const inputClass = `w-full px-4 py-3 rounded-lg text-sm outline-none transition-all focus:ring-1 placeholder-gray-600`;
     const inputStyle = {
         background: 'rgba(255,255,255,0.04)',
         border: '1px solid rgba(255,255,255,0.1)',
@@ -29,7 +29,7 @@ export default function ContactClient() {
     return (
         <>
             {/* HERO */}
-            <section className="section-pad relative overflow-hidden tech-grid pt-32 lg:pt-48">
+            <section className="section-pad relative overflow-hidden tech-grid pt-24 lg:pt-36">
                 <div className="absolute inset-0 gradient-radial-orange pointer-events-none" />
                 <div className="container-custom relative z-10 text-center">
                     <div className="max-w-3xl mx-auto">
@@ -50,9 +50,9 @@ export default function ContactClient() {
                     <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
                         {/* Contact Form */}
                         <div className="lg:col-span-3 order-first lg:order-none">
-                            <div className="card p-6 sm:p-8 md:p-10">
+                            <div className="card p-5 sm:p-7 md:p-8">
                                 <h2 className="mb-2">Send a Message</h2>
-                                <p className="text-sm sm:text-base mb-8" style={{ color: '#6B7280' }}>
+                                <p className="text-sm sm:text-base mb-6" style={{ color: '#6B7280' }}>
                                     Tell me about your project and your biggest operational challenge.
                                 </p>
 
@@ -73,8 +73,8 @@ export default function ContactClient() {
                                         </a>
                                     </div>
                                 ) : (
-                                    <form onSubmit={handleSubmit} className="space-y-6">
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                    <form onSubmit={handleSubmit} className="space-y-5">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                             <div>
                                                 <label
                                                     className="block text-[10px] font-bold uppercase tracking-widest mb-3"
@@ -111,7 +111,7 @@ export default function ContactClient() {
                                             </div>
                                         </div>
 
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                             <div>
                                                 <label
                                                     className="block text-[10px] font-bold uppercase tracking-widest mb-3"
@@ -178,7 +178,7 @@ export default function ContactClient() {
                                             />
                                         </div>
 
-                                        <button type="submit" className="btn-orange w-full text-base py-5">
+                                        <button type="submit" className="btn-orange w-full text-base py-4">
                                             <span>Send Message →</span>
                                         </button>
                                         <p className="text-[10px] text-center italic" style={{ color: '#6B7280' }}>
@@ -192,7 +192,7 @@ export default function ContactClient() {
                         {/* Sidebar */}
                         <div className="lg:col-span-2 space-y-6">
                             {/* Book Call */}
-                            <div className="card p-7 relative">
+                            <div className="card p-6 relative">
                                 <div
                                     className="absolute inset-0 pointer-events-none"
                                     style={{
@@ -201,9 +201,9 @@ export default function ContactClient() {
                                     }}
                                 />
                                 <div className="relative z-10">
-                                    <div className="text-4xl mb-4">📅</div>
+                                    <div className="text-3xl mb-3">📅</div>
                                     <h3 className="text-xl font-black text-white mb-2">Book a Strategy Call</h3>
-                                    <p className="text-sm mb-5" style={{ color: '#9CA3AF' }}>
+                                    <p className="text-sm mb-4" style={{ color: '#9CA3AF' }}>
                                         Skip the back-and-forth. Book a 30-minute call directly and let&apos;s discuss your
                                         project in real-time.
                                     </p>
@@ -219,7 +219,7 @@ export default function ContactClient() {
                             </div>
 
                             {/* Contact Methods */}
-                            <div className="card p-7">
+                            <div className="card p-6">
                                 <h3
                                     className="text-sm font-bold uppercase tracking-widest mb-5"
                                     style={{ color: '#FF6A00' }}

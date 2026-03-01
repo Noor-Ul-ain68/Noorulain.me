@@ -30,18 +30,31 @@ export default function Navbar() {
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'glass border-b border-white/5 py-2 lg:py-3' : 'bg-transparent py-3 lg:py-5'
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'glass border-b border-white/5 py-1 lg:py-1.5' : 'bg-transparent py-2 lg:py-3'
                 }`}
         >
             <nav className="container-custom flex items-center justify-between">
+                {/* Mobile Hamburger - Moved to left */}
+                <button
+                    onClick={() => setIsMobileOpen(true)}
+                    className="lg:hidden p-2 rounded-lg text-white/80 hover:text-white transition-colors relative z-50 w-9 h-9 flex items-center justify-center bg-white/5 border border-white/10"
+                    aria-label="Open navigation"
+                >
+                    <div className="w-5 relative h-4 flex flex-col justify-between">
+                        <span className="h-0.5 w-full bg-current rounded-full" />
+                        <span className="h-0.5 w-4/5 bg-current rounded-full ml-auto" />
+                        <span className="h-0.5 w-full bg-current rounded-full" />
+                    </div>
+                </button>
+
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-3 group">
-                    <div className="relative w-9 h-9 rounded-lg flex items-center justify-center animate-pulse-glow" style={{ background: 'linear-gradient(135deg, #FF8C1A, #FF4D00)' }}>
-                        <span className="text-white font-black text-sm relative z-10">NA</span>
+                <Link href="/" className="flex items-center gap-2.5 group">
+                    <div className="relative w-8 h-8 rounded-lg flex items-center justify-center animate-pulse-glow" style={{ background: 'linear-gradient(135deg, #FF8C1A, #FF4D00)' }}>
+                        <span className="text-white font-black text-xs relative z-10">NA</span>
                     </div>
                     <div className="hidden sm:block">
-                        <p className="text-white font-black text-sm uppercase tracking-wider leading-none group-hover:text-gradient-orange transition-all">Noor ul Ain</p>
-                        <p className="text-[10px] mt-1 font-bold tracking-[0.1em] uppercase opacity-60" style={{ color: '#FF6A00' }}>AI Automation Strategist</p>
+                        <p className="text-white font-black text-xs uppercase tracking-wider leading-none group-hover:text-gradient-orange transition-all">Noor ul Ain</p>
+                        <p className="text-[9px] mt-1 font-bold tracking-[0.1em] uppercase opacity-60" style={{ color: '#FF6A00' }}>AI Automation Strategist</p>
                     </div>
                 </Link>
 
@@ -51,7 +64,7 @@ export default function Navbar() {
                         <li key={item.href}>
                             <Link
                                 href={item.href}
-                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${pathname === item.href
+                                className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${pathname === item.href
                                     ? 'text-orange-400'
                                     : 'text-gray-300 hover:text-white hover:bg-white/5'
                                     }`}
@@ -65,23 +78,10 @@ export default function Navbar() {
 
                 {/* CTA Button */}
                 <div className="hidden lg:flex items-center gap-3">
-                    <a href={SITE_CONFIG.calendly} target="_blank" rel="noopener noreferrer" className="btn-orange text-sm">
+                    <a href={SITE_CONFIG.calendly} target="_blank" rel="noopener noreferrer" className="btn-orange text-xs py-1.5 px-6 min-h-[38px] transition-all">
                         <span>Book Strategy Call</span>
                     </a>
                 </div>
-
-                {/* Mobile Hamburger */}
-                <button
-                    onClick={() => setIsMobileOpen(true)}
-                    className="lg:hidden p-2 rounded-lg text-white/80 hover:text-white transition-colors relative z-50 w-10 h-10 flex items-center justify-center bg-white/5 border border-white/10"
-                    aria-label="Open navigation"
-                >
-                    <div className="w-6 relative h-5 flex flex-col justify-between">
-                        <span className="h-0.5 w-full bg-current rounded-full" />
-                        <span className="h-0.5 w-4/5 bg-current rounded-full ml-auto" />
-                        <span className="h-0.5 w-full bg-current rounded-full" />
-                    </div>
-                </button>
             </nav>
 
             {/* Backdrop Overlay */}
@@ -151,6 +151,6 @@ export default function Navbar() {
                     </div>
                 </div>
             </aside>
-        </header>
+        </header >
     );
 }
