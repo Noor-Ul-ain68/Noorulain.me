@@ -3,281 +3,153 @@
 import { useState } from 'react';
 import { SITE_CONFIG } from '@/constants';
 
-const contactMethods = [
-    { icon: '📧', label: 'Email', href: `mailto:${SITE_CONFIG.email}`, desc: 'Best for project inquiries' },
-    { icon: '💼', label: 'LinkedIn', href: SITE_CONFIG.linkedin, desc: 'Professional network' },
-    { icon: '🐙', label: 'GitHub', href: SITE_CONFIG.github, desc: 'See my code & projects' },
-    { icon: '📅', label: 'Calendly', href: SITE_CONFIG.calendly, desc: '30-min free consultation' },
-];
-
 export default function ContactClient() {
-    const [form, setForm] = useState({ name: '', email: '', company: '', budget: '', message: '' });
-    const [submitted, setSubmitted] = useState(false);
+    const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+    const [form, setForm] = useState({ name: '', email: '', message: '' });
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setSubmitted(true);
+        setStatus('submitting');
+
+        try {
+            const response = await fetch('https://formspree.io/f/mqaevepk', { // Formspree ID for the provided email
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    ...form,
+                    _subject: 'New Contact Form Submission',
+                }),
+            });
+
+            if (response.ok) {
+                setStatus('success');
+                setForm({ name: '', email: '', message: '' });
+            } else {
+                setStatus('error');
+            }
+        } catch (err) {
+            setStatus('error');
+        }
     };
 
-    const inputClass = `w-full px-4 py-3 rounded-lg text-sm outline-none transition-all focus:ring-1 placeholder-gray-600`;
-    const inputStyle = {
-        background: 'rgba(255,255,255,0.04)',
-        border: '1px solid rgba(255,255,255,0.1)',
-        color: 'white',
-    };
+    const inputClass = `w-full px-4 py-3 rounded-none border-b border-white/10 bg-transparent text-sm outline-none transition-all focus:border-orange-500/50 placeholder-gray-600`;
 
     return (
-        <>
-            {/* HERO */}
-            <section className="section-pad relative overflow-hidden tech-grid pt-24 lg:pt-36">
-                <div className="absolute inset-0 gradient-radial-orange pointer-events-none" />
-                <div className="container-custom relative z-10 text-center">
-                    <div className="max-w-3xl mx-auto">
-                        <p className="section-label justify-center">Contact</p>
-                        <h1 className="mb-6 text-[28px] xs:text-[32px] sm:text-5xl lg:text-7xl leading-[1.2] lg:leading-[1.1]">
-                            Let&apos;s Build Something{' '}
-                            <span className="text-gradient-orange">Intelligent</span>
+        <section className="pt-20 pb-12 lg:pt-28 lg:pb-20 overflow-hidden bg-[#0B0B0D]">
+            <div className="container-custom">
+                <div className="grid grid-cols-1 lg:grid-cols-10 gap-12 lg:gap-20 items-start">
+
+                    {/* LEFT SIDE (40%) */}
+                    <div className="lg:col-span-4 flex flex-col items-center text-center lg:items-start lg:text-left">
+                        <h1 className="text-4xl lg:text-5xl font-black text-white mb-6 tracking-tight">
+                            Get in Touch
                         </h1>
-                        <p className="text-base sm:text-lg lg:text-xl leading-relaxed" style={{ color: '#9CA3AF' }}>
-                            Have a project in mind? Book a strategy call or send a message. I respond within 24 hours to qualified inquiries.
+                        <h2 className="text-xl lg:text-2xl font-medium text-orange-500/90 mb-8">
+                            I’d love to hear from you.
+                        </h2>
+                        <p className="text-sm lg:text-base leading-relaxed text-gray-400 max-w-[280px] lg:max-w-xs mb-12">
+                            Whether you have a specific project in mind or just want to explore how AI automation can transform your operations, I'm here to help.
                         </p>
+
+                        <div className="mb-12 w-full group">
+                            <p className="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-3 font-bold">Email Me Directly</p>
+                            <a href={`mailto:noorulainrafiq791@gmail.com`} className="text-lg lg:text-xl font-bold text-white hover:text-orange-500 transition-colors">
+                                noorulainrafiq791@gmail.com
+                            </a>
+                        </div>
+
+                        <div className="flex items-center gap-6">
+                            <a href={SITE_CONFIG.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-all transform hover:scale-110">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" />
+                                </svg>
+                            </a>
+                            <a href={SITE_CONFIG.github} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-all transform hover:scale-110">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                                </svg>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </section>
 
-            <section className="section-pad">
-                <div className="container-custom">
-                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-                        {/* Contact Form */}
-                        <div className="lg:col-span-3 order-first lg:order-none">
-                            <div className="card p-5 sm:p-7 md:p-8">
-                                <h2 className="mb-2">Send a Message</h2>
-                                <p className="text-sm sm:text-base mb-6" style={{ color: '#6B7280' }}>
-                                    Tell me about your project and your biggest operational challenge.
-                                </p>
-
-                                {submitted ? (
-                                    <div className="text-center py-12">
-                                        <div className="text-6xl mb-6">🎯</div>
-                                        <h3 className="mb-2">Message Sent!</h3>
-                                        <p style={{ color: '#9CA3AF' }}>
-                                            I&apos;ll review your project and get back to you within 24 hours.
-                                        </p>
-                                        <a
-                                            href={SITE_CONFIG.calendly}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="btn-orange mt-8"
-                                        >
-                                            <span>Or Book a Call Now →</span>
-                                        </a>
+                    {/* RIGHT SIDE (60%) */}
+                    <div className="lg:col-span-6 w-full lg:max-w-[540px]">
+                        <div className="bg-[#111114]/50 border border-white/[0.03] p-6 lg:p-8 rounded-2xl relative">
+                            {status === 'success' ? (
+                                <div className="py-12 text-center animate-fade-in">
+                                    <div className="w-16 h-16 bg-orange-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                                        <svg className="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                        </svg>
                                     </div>
-                                ) : (
-                                    <form onSubmit={handleSubmit} className="space-y-5">
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                                            <div>
-                                                <label
-                                                    className="block text-[10px] font-bold uppercase tracking-widest mb-3"
-                                                    style={{ color: '#9CA3AF' }}
-                                                >
-                                                    Full Name *
-                                                </label>
-                                                <input
-                                                    type="text"
-                                                    required
-                                                    placeholder="John Smith"
-                                                    className={inputClass}
-                                                    style={inputStyle}
-                                                    value={form.name}
-                                                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                                                />
-                                            </div>
-                                            <div>
-                                                <label
-                                                    className="block text-[10px] font-bold uppercase tracking-widest mb-3"
-                                                    style={{ color: '#9CA3AF' }}
-                                                >
-                                                    Email Address *
-                                                </label>
-                                                <input
-                                                    type="email"
-                                                    required
-                                                    placeholder="john@company.com"
-                                                    className={inputClass}
-                                                    style={inputStyle}
-                                                    value={form.email}
-                                                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                                                />
-                                            </div>
-                                        </div>
-
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                                            <div>
-                                                <label
-                                                    className="block text-[10px] font-bold uppercase tracking-widest mb-3"
-                                                    style={{ color: '#9CA3AF' }}
-                                                >
-                                                    Company / Startup
-                                                </label>
-                                                <input
-                                                    type="text"
-                                                    placeholder="Acme Inc."
-                                                    className={inputClass}
-                                                    style={inputStyle}
-                                                    value={form.company}
-                                                    onChange={(e) => setForm({ ...form, company: e.target.value })}
-                                                />
-                                            </div>
-                                            <div>
-                                                <label
-                                                    className="block text-[10px] font-bold uppercase tracking-widest mb-3"
-                                                    style={{ color: '#9CA3AF' }}
-                                                >
-                                                    Project Budget
-                                                </label>
-                                                <select
-                                                    className={inputClass}
-                                                    style={{ ...inputStyle, cursor: 'pointer' }}
-                                                    value={form.budget}
-                                                    onChange={(e) => setForm({ ...form, budget: e.target.value })}
-                                                >
-                                                    <option value="" style={{ background: '#1A1A1F' }}>
-                                                        Select range
-                                                    </option>
-                                                    <option value="1500-3000" style={{ background: '#1A1A1F' }}>
-                                                        $1,500 – $3,000
-                                                    </option>
-                                                    <option value="3000-5000" style={{ background: '#1A1A1F' }}>
-                                                        $3,000 – $5,000
-                                                    </option>
-                                                    <option value="5000-10000" style={{ background: '#1A1A1F' }}>
-                                                        $5,000 – $10,000
-                                                    </option>
-                                                    <option value="10000+" style={{ background: '#1A1A1F' }}>
-                                                        $10,000+
-                                                    </option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                            <label
-                                                className="block text-[10px] font-bold uppercase tracking-widest mb-3"
-                                                style={{ color: '#9CA3AF' }}
-                                            >
-                                                Your Biggest Challenge *
-                                            </label>
-                                            <textarea
+                                    <h3 className="text-2xl font-black text-white mb-2">Message Sent</h3>
+                                    <p className="text-gray-400">Thank you for reaching out. I'll get back to you shortly.</p>
+                                    <button
+                                        onClick={() => setStatus('idle')}
+                                        className="mt-8 text-sm font-bold text-orange-500 hover:text-orange-400 transition-colors underline underline-offset-4"
+                                    >
+                                        Send another message
+                                    </button>
+                                </div>
+                            ) : (
+                                <form onSubmit={handleSubmit} className="space-y-8">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                                        <div className="space-y-2">
+                                            <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Name</label>
+                                            <input
+                                                type="text"
                                                 required
-                                                rows={5}
-                                                placeholder="Describe the processes you want to automate..."
-                                                className={`${inputClass} resize-none`}
-                                                style={inputStyle}
-                                                value={form.message}
-                                                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                                                placeholder="Your full name"
+                                                className={inputClass}
+                                                value={form.name}
+                                                onChange={(e) => setForm({ ...form, name: e.target.value })}
                                             />
                                         </div>
+                                        <div className="space-y-2">
+                                            <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Email</label>
+                                            <input
+                                                type="email"
+                                                required
+                                                placeholder="your@email.com"
+                                                className={inputClass}
+                                                value={form.email}
+                                                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                                            />
+                                        </div>
+                                    </div>
 
-                                        <button type="submit" className="btn-orange w-full text-base py-4">
-                                            <span>Send Message →</span>
-                                        </button>
-                                        <p className="text-[10px] text-center italic" style={{ color: '#6B7280' }}>
-                                            I respond to all qualified inquiries within 24 hours.
-                                        </p>
-                                    </form>
-                                )}
-                            </div>
-                        </div>
+                                    <div className="space-y-2">
+                                        <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Message</label>
+                                        <textarea
+                                            required
+                                            rows={6}
+                                            placeholder="Tell me about your project or goal..."
+                                            className={`${inputClass} resize-none`}
+                                            value={form.message}
+                                            onChange={(e) => setForm({ ...form, message: e.target.value })}
+                                        />
+                                    </div>
 
-                        {/* Sidebar */}
-                        <div className="lg:col-span-2 space-y-6">
-                            {/* Book Call */}
-                            <div className="card p-6 relative">
-                                <div
-                                    className="absolute inset-0 pointer-events-none"
-                                    style={{
-                                        background:
-                                            'radial-gradient(ellipse 80% 60% at 100% 0%, rgba(255,106,0,0.08) 0%, transparent 70%)',
-                                    }}
-                                />
-                                <div className="relative z-10">
-                                    <div className="text-3xl mb-3">📅</div>
-                                    <h3 className="text-xl font-black text-white mb-2">Book a Strategy Call</h3>
-                                    <p className="text-sm mb-4" style={{ color: '#9CA3AF' }}>
-                                        Skip the back-and-forth. Book a 30-minute call directly and let&apos;s discuss your
-                                        project in real-time.
-                                    </p>
-                                    <a
-                                        href={SITE_CONFIG.calendly}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="btn-orange text-sm w-full justify-center"
-                                    >
-                                        <span>Schedule Free Call →</span>
-                                    </a>
-                                </div>
-                            </div>
-
-                            {/* Contact Methods */}
-                            <div className="card p-6">
-                                <h3
-                                    className="text-sm font-bold uppercase tracking-widest mb-5"
-                                    style={{ color: '#FF6A00' }}
-                                >
-                                    Other Ways to Connect
-                                </h3>
-                                <div className="space-y-3">
-                                    {contactMethods.map((method) => (
-                                        <a
-                                            key={method.label}
-                                            href={method.href}
-                                            target={method.href.startsWith('http') ? '_blank' : undefined}
-                                            rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                                            className="flex items-center gap-4 p-3 rounded-lg transition-all group"
-                                            style={{
-                                                background: 'rgba(255,255,255,0.02)',
-                                                border: '1px solid rgba(255,255,255,0.05)',
-                                            }}
+                                    <div className="pt-2 flex flex-col items-center lg:items-end">
+                                        <button
+                                            type="submit"
+                                            disabled={status === 'submitting'}
+                                            className="btn-orange w-full sm:w-auto px-10 py-3.5 text-sm tracking-wide disabled:opacity-50 transition-all active:scale-95"
                                         >
-                                            <span className="text-2xl">{method.icon}</span>
-                                            <div className="flex-1">
-                                                <p className="text-sm font-bold text-white">{method.label}</p>
-                                                <p className="text-xs" style={{ color: '#6B7280' }}>
-                                                    {method.desc}
-                                                </p>
-                                            </div>
-                                            <svg
-                                                className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1"
-                                                style={{ color: '#FF6A00' }}
-                                                fill="none"
-                                                stroke="currentColor"
-                                                strokeWidth="2"
-                                                viewBox="0 0 24 24"
-                                            >
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                                            </svg>
-                                        </a>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Availability */}
-                            <div className="highlight-box">
-                                <div className="flex items-center gap-3">
-                                    <span
-                                        className="w-2 h-2 rounded-full animate-pulse"
-                                        style={{ background: '#FF6A00' }}
-                                    />
-                                    <p className="text-sm font-semibold text-white">Available for new projects</p>
-                                </div>
-                                <p className="text-xs mt-2" style={{ color: '#6B7280' }}>
-                                    Typical response time: within 24 hours
-                                </p>
-                            </div>
+                                            <span>
+                                                {status === 'submitting' ? 'Sending...' : 'Send Message'}
+                                            </span>
+                                        </button>
+                                        {status === 'error' && (
+                                            <p className="mt-4 text-xs text-red-400">Something went wrong. Please try again.</p>
+                                        )}
+                                    </div>
+                                </form>
+                            )}
                         </div>
                     </div>
                 </div>
-            </section>
-        </>
+            </div>
+        </section>
     );
 }
