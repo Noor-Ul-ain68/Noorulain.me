@@ -5,30 +5,33 @@ import { SITE_CONFIG } from '@/constants';
 
 export default function ContactClient() {
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+    const [errorMessage, setErrorMessage] = useState('');
     const [form, setForm] = useState({ name: '', email: '', message: '' });
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setStatus('submitting');
+        setErrorMessage('');
 
         try {
-            const response = await fetch('https://formspree.io/f/mqaevepk', { // Formspree ID for the provided email
+            const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    ...form,
-                    _subject: 'New Contact Form Submission',
-                }),
+                body: JSON.stringify(form),
             });
 
-            if (response.ok) {
+            const data = await response.json();
+
+            if (response.ok && data.success) {
                 setStatus('success');
                 setForm({ name: '', email: '', message: '' });
             } else {
                 setStatus('error');
+                setErrorMessage(data.message || 'Error sending email. Please try again.');
             }
-        } catch (err) {
+        } catch (err: any) {
             setStatus('error');
+            setErrorMessage(err.message || 'Connection error. Please try again.');
         }
     };
 
@@ -141,7 +144,7 @@ export default function ContactClient() {
                                             </span>
                                         </button>
                                         {status === 'error' && (
-                                            <p className="mt-4 text-xs text-red-400">Something went wrong. Please try again.</p>
+                                            <p className="mt-4 text-xs text-red-400">{errorMessage}</p>
                                         )}
                                     </div>
                                 </form>
