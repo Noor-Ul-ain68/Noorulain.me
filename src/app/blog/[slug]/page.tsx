@@ -123,7 +123,7 @@ export default async function BlogPostPage({ params }: Props) {
                                 {/* CTA */}
                                 <div className="card p-6">
                                     <h3 className="font-black text-white mb-3 text-base">Ready to Automate?</h3>
-                                    <p className="text-xs mb-5" style={{ color: '#9CA3AF' }}>Book a free 30-min strategy call and let's design your automation system.</p>
+                                    <p className="text-xs mb-5" style={{ color: '#9CA3AF' }}>Book a free 30-min strategy call and let&apos;s design your automation system.</p>
                                     <a href={SITE_CONFIG.calendly} target="_blank" rel="noopener noreferrer" className="btn-orange text-sm w-full justify-center">
                                         <span>Book Call →</span>
                                     </a>

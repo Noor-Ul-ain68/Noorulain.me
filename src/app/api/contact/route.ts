@@ -37,10 +37,11 @@ export async function POST(request: Request) {
         try {
             await transporter.verify();
             console.log('SMTP connection verified successfully.');
-        } catch (verifyError: any) {
-            console.error('SMTP Verification Error:', verifyError);
+        } catch (verifyError: unknown) {
+            const error = verifyError as Error;
+            console.error('SMTP Verification Error:', error);
             return NextResponse.json(
-                { success: false, message: `SMTP connection failed: ${verifyError.message}` },
+                { success: false, message: `SMTP connection failed: ${error.message}` },
                 { status: 500 }
             );
         }
@@ -81,7 +82,8 @@ export async function POST(request: Request) {
             { success: true, message: 'Email sent successfully' },
             { status: 200 }
         );
-    } catch (error: any) {
+    } catch (err: unknown) {
+        const error = err as Error;
         console.error('Full Nodemailer error:', error);
         return NextResponse.json(
             { success: false, message: `Error sending email: ${error.message}` },

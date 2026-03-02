@@ -29,9 +29,10 @@ export default function ContactClient() {
                 setStatus('error');
                 setErrorMessage(data.message || 'Error sending email. Please try again.');
             }
-        } catch (err: any) {
+        } catch (err: unknown) {
+            const error = err as Error;
             setStatus('error');
-            setErrorMessage(err.message || 'Connection error. Please try again.');
+            setErrorMessage(error.message || 'Connection error. Please try again.');
         }
     };
 
@@ -51,13 +52,13 @@ export default function ContactClient() {
                             I’d love to hear from you.
                         </h2>
                         <p className="text-sm lg:text-base leading-relaxed text-gray-400 max-w-[280px] lg:max-w-xs mb-12">
-                            Whether you have a specific project in mind or just want to explore how AI automation can transform your operations, I'm here to help.
+                            Whether you have a specific project in mind or just want to explore how AI automation can transform your operations, I&apos;m here to help.
                         </p>
 
                         <div className="mb-12 w-full group">
                             <p className="text-[10px] uppercase tracking-[0.2em] text-gray-500 mb-3 font-bold">Email Me Directly</p>
-                            <a href={`mailto:noorulainrafiq791@gmail.com`} className="text-lg lg:text-xl font-bold text-white hover:text-orange-500 transition-colors">
-                                noorulainrafiq791@gmail.com
+                            <a href={`mailto:${SITE_CONFIG.email}`} className="text-lg lg:text-xl font-bold text-white hover:text-orange-500 transition-colors">
+                                {SITE_CONFIG.email}
                             </a>
                         </div>
 
@@ -86,7 +87,7 @@ export default function ContactClient() {
                                         </svg>
                                     </div>
                                     <h3 className="text-2xl font-black text-white mb-2">Message Sent</h3>
-                                    <p className="text-gray-400">Thank you for reaching out. I'll get back to you shortly.</p>
+                                    <p className="text-gray-400">Thank you for reaching out. I&apos;ll get back to you shortly.</p>
                                     <button
                                         onClick={() => setStatus('idle')}
                                         className="mt-8 text-sm font-bold text-orange-500 hover:text-orange-400 transition-colors underline underline-offset-4"

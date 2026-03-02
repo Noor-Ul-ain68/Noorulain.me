@@ -15,7 +15,7 @@ export const SITE_CONFIG = {
     description:
         'Noor ul Ain is a premium AI Automation Consultant helping SaaS founders and scaling businesses eliminate manual work using n8n, LLM integrations, and intelligent automation systems.',
     url: 'https://noorulain.dev',
-    email: 'hello@noorulain.dev',
+    email: 'noorulainrafiq791@gmail.com',
     linkedin: 'https://linkedin.com/in/noorulain',
     github: 'https://github.com/noorulain',
     calendly: 'https://calendly.com/noorulain/strategy-call',

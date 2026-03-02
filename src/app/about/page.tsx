@@ -38,7 +38,7 @@ export default function AboutPage() {
                             <span className="text-gradient-orange">Behind the Systems</span>
                         </h1>
                         <p className="text-base sm:text-lg lg:text-xl leading-relaxed mb-8" style={{ color: '#9CA3AF' }}>
-                            I'm Noor ul Ain — an AI Automation Strategist and Systems Architect helping SaaS companies and scaling businesses design intelligent automation that creates real competitive advantage.
+                            I&apos;m Noor ul Ain — an AI Automation Strategist and Systems Architect helping SaaS companies and scaling businesses design intelligent automation that creates real competitive advantage.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
                             <a href={SITE_CONFIG.calendly} target="_blank" rel="noopener noreferrer" className="btn-orange">
@@ -90,13 +90,13 @@ export default function AboutPage() {
                             </h2>
                             <div className="space-y-6 text-base sm:text-lg leading-relaxed" style={{ color: '#9CA3AF' }}>
                                 <p>
-                                    My journey began in software development, where I quickly realized that the biggest constraint on business growth wasn't talent or strategy — it was operational inefficiency. Teams drowning in manual work couldn't move fast enough to compete.
+                                    My journey began in software development, where I quickly realized that the biggest constraint on business growth wasn&apos;t talent or strategy — it was operational inefficiency. Teams drowning in manual work couldn&apos;t move fast enough to compete.
                                 </p>
                                 <p>
                                     I spent years mastering Python, cloud infrastructure, and SaaS architecture. Then n8n and the LLM revolution arrived, and everything changed. For the first time, it was possible to automate complex, intelligent business processes end-to-end.
                                 </p>
                                 <p>
-                                    Now, I work exclusively with SaaS founders and scaling businesses who are serious about using AI automation as a competitive weapon. My clients don't hire me to save a few hours. They hire me to redesign how their operations work entirely.
+                                    Now, I work exclusively with SaaS founders and scaling businesses who are serious about using AI automation as a competitive weapon. My clients don&apos;t hire me to save a few hours. They hire me to redesign how their operations work entirely.
                                 </p>
                             </div>
                         </div>

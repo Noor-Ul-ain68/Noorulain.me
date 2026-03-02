@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { SITE_CONFIG } from '@/constants';
 import { caseStudies } from '@/content/caseStudies';
 
@@ -24,7 +23,7 @@ export default function CaseStudiesPage() {
                             <span className="text-gradient-orange">Real Results.</span>
                         </h1>
                         <p className="text-base sm:text-lg lg:text-xl leading-relaxed" style={{ color: '#9CA3AF' }}>
-                            Every automation project is backed by measurable outcomes. Here's what happens when intelligent systems replace manual work.
+                            Every automation project is backed by measurable outcomes. Here&apos;s what happens when intelligent systems replace manual work.
                         </p>
                     </div>
                 </div>
@@ -100,7 +99,7 @@ export default function CaseStudiesPage() {
                         <span className="text-gradient-orange">Next Case Study?</span>
                     </h2>
                     <p className="text-lg mb-6" style={{ color: '#9CA3AF' }}>
-                        Book a strategy call and let's identify the automation opportunities that will deliver the biggest ROI for your business.
+                        Book a strategy call and let&apos;s identify the automation opportunities that will deliver the biggest ROI for your business.
                     </p>
                     <a href={SITE_CONFIG.calendly} target="_blank" rel="noopener noreferrer" className="btn-orange text-lg px-10 py-5">
                         <span>Book Free Strategy Call →</span>

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { SITE_CONFIG } from '@/constants';
 import { services } from '@/content/services';
 
@@ -41,7 +40,7 @@ export default function ServicesPage() {
             <section className="section-pad">
                 <div className="container-custom">
                     <div className="space-y-6">
-                        {services.map((service, i) => (
+                        {services.map((service) => (
                             <div key={service.id} id={service.id} className="card p-6 sm:p-8 md:p-10 scroll-mt-24">
                                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-12">
                                     {/* Left */}
@@ -124,7 +123,7 @@ export default function ServicesPage() {
                         <span className="text-gradient-orange">Automation Project?</span>
                     </h2>
                     <p className="text-lg mb-6" style={{ color: '#9CA3AF' }}>
-                        Book a no-obligation 30-minute strategy call. We'll identify your highest-ROI automation opportunity and give you a clear implementation roadmap.
+                        Book a no-obligation 30-minute strategy call. We&apos;ll identify your highest-ROI automation opportunity and give you a clear implementation roadmap.
                     </p>
                     <a href={SITE_CONFIG.calendly} target="_blank" rel="noopener noreferrer" className="btn-orange text-lg px-10 py-5">
                         <span>Book Free Strategy Call →</span>

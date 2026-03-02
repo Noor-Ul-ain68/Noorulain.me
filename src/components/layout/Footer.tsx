@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { NAV_ITEMS, SITE_CONFIG } from '@/constants';
+import { SITE_CONFIG } from '@/constants';
 
 const FooterLinks = {
     Services: [
