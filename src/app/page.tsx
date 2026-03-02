@@ -29,7 +29,7 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════
           HERO SECTION — Two Column Layout
       ═══════════════════════════════════════ */}
-      <section className="relative flex items-center pt-20 pb-12 lg:pt-32 lg:pb-20 overflow-hidden tech-grid text-balance">
+      <section className="relative flex items-center pt-12 pb-12 lg:pt-16 lg:pb-16 overflow-hidden tech-grid text-balance">
 
         {/* Background ambient glows */}
         <div className="absolute inset-0 gradient-radial-orange pointer-events-none" />
@@ -52,7 +52,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
 
             {/* ── RIGHT: Portrait Image (Order first on mobile) ── */}
-            <div className="flex items-center justify-center lg:justify-end order-first lg:order-last mb-8 lg:mb-0">
+            <div className="flex justify-center lg:justify-end order-first lg:order-last mb-8 lg:mb-0">
               <div className="relative w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[420px]" style={{ isolation: 'isolate' }}>
 
                 {/* Deep radial glow behind photo */}
@@ -138,17 +138,17 @@ export default function HomePage() {
               </div>
 
               {/* H1 */}
-              <h1 className="mb-4 lg:mb-6 animate-fade-in-up delay-100 max-w-2xl text-[28px] xs:text-[32px] sm:text-5xl lg:text-7xl leading-[1.2] lg:leading-[1.1]">
+              <h1 className="mb-3 lg:mb-4 animate-fade-in-up delay-100 max-w-2xl text-[28px] xs:text-[32px] sm:text-5xl lg:text-6xl leading-[1.2] lg:leading-[1.05]">
                 Building{' '}
                 <span className="text-gradient-orange sm:whitespace-nowrap">Intelligent AI</span>
                 <br className="hidden sm:block" />
                 <span className="block sm:inline"> Automation Systems</span>
                 <br className="hidden lg:block" />
-                <span className="block text-white mt-2 lg:mt-0">That Scale Businesses</span>
+                <span className="block text-white mt-1 lg:mt-0">That Scale Businesses</span>
               </h1>
 
               <p
-                className="text-base sm:text-lg lg:text-xl leading-relaxed mb-5 lg:mb-8 max-w-xl animate-fade-in-up delay-200"
+                className="text-base sm:text-lg lg:text-xl leading-relaxed mb-4 lg:mb-6 max-w-xl animate-fade-in-up delay-200"
                 style={{ color: '#9CA3AF' }}
               >
                 Helping startups and growing companies eliminate manual work using{' '}
@@ -157,7 +157,7 @@ export default function HomePage() {
                 architectures. I design systems that work 24/7 — so your team doesn&apos;t have to.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-center gap-5 w-full sm:w-auto animate-fade-in-up delay-300">
+              <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
                 <a
                   href={SITE_CONFIG.calendly}
                   target="_blank"
@@ -172,7 +172,7 @@ export default function HomePage() {
               </div>
 
               {/* Social proof */}
-              <div className="mt-8 lg:mt-14 flex flex-col sm:flex-row items-center gap-5 animate-fade-in-up delay-400">
+              <div className="mt-6 lg:mt-10 flex flex-col sm:flex-row items-center gap-4 animate-fade-in-up delay-400">
                 <div className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/5 bg-white/2">
                   {[...Array(5)].map((_, i) => (
                     <svg key={i} className="w-3.5 h-3.5" style={{ color: '#FF6A00' }} fill="currentColor" viewBox="0 0 20 20">
