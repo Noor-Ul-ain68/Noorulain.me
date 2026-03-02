@@ -29,7 +29,7 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════
           HERO SECTION — Two Column Layout
       ═══════════════════════════════════════ */}
-      <section className="relative flex items-center pt-12 pb-12 lg:pt-16 lg:pb-16 overflow-hidden tech-grid text-balance">
+      <section className="relative pt-12 pb-12 lg:pt-20 lg:pb-20 overflow-hidden tech-grid text-balance">
 
         {/* Background ambient glows */}
         <div className="absolute inset-0 gradient-radial-orange pointer-events-none" />
@@ -130,15 +130,15 @@ export default function HomePage() {
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
               {/* Status badge */}
               <div
-                className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full text-[10px] xs:text-xs sm:text-sm font-medium animate-fade-in-up"
-                style={{ background: 'rgba(255,106,0,0.1)', border: '1px solid rgba(255,106,0,0.25)', color: '#FF8C1A' }}
+                className="inline-flex items-center gap-2 mb-1 lg:mb-2 px-3.5 py-1.5 rounded-full text-[10px] xs:text-xs sm:text-sm font-medium animate-fade-in-up"
+                style={{ background: 'rgba(255,106,0,0.06)', border: '1px solid rgba(255,106,0,0.15)', color: '#FF8C1A' }}
               >
-                <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#FF6A00' }} />
+                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#FF6A00' }} />
                 Available for New Projects · AI Automation Consulting
               </div>
 
               {/* H1 */}
-              <h1 className="mb-3 lg:mb-4 animate-fade-in-up delay-100 max-w-2xl text-[28px] xs:text-[32px] sm:text-5xl lg:text-6xl leading-[1.2] lg:leading-[1.05]">
+              <h1 className="mb-2 lg:mb-3 animate-fade-in-up delay-100 max-w-xl text-[28px] xs:text-[32px] sm:text-4xl lg:text-[2.75rem] leading-[1.2] lg:leading-[1.1]">
                 Building{' '}
                 <span className="text-gradient-orange sm:whitespace-nowrap">Intelligent AI</span>
                 <br className="hidden sm:block" />
@@ -148,16 +148,16 @@ export default function HomePage() {
               </h1>
 
               <p
-                className="text-base sm:text-lg lg:text-xl leading-relaxed mb-4 lg:mb-6 max-w-xl animate-fade-in-up delay-200"
+                className="text-base sm:text-lg lg:text-lg leading-relaxed mb-3 lg:mb-5 max-w-xl animate-fade-in-up delay-200"
                 style={{ color: '#9CA3AF' }}
               >
                 Helping startups and growing companies eliminate manual work using{' '}
-                <span className="text-white font-semibold">n8n</span>,{' '}
-                <span className="text-white font-semibold">LLM integrations</span>, and scalable SaaS
+                <span className="text-white">n8n</span>,{' '}
+                <span className="text-white">LLM integrations</span>, and scalable SaaS
                 architectures. I design systems that work 24/7 — so your team doesn&apos;t have to.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto animate-fade-in-up delay-300">
+              <div className="flex flex-col sm:flex-row items-center gap-3.5 w-full sm:w-auto animate-fade-in-up delay-300">
                 <a
                   href={SITE_CONFIG.calendly}
                   target="_blank"
@@ -166,13 +166,13 @@ export default function HomePage() {
                 >
                   <span>Book Strategy Call →</span>
                 </a>
-                <Link href="/case-studies" className="btn-ghost w-full sm:w-auto text-center justify-center">
+                <Link href="/case-studies" className="btn-orange w-full sm:w-auto text-center justify-center">
                   View Case Studies
                 </Link>
               </div>
 
               {/* Social proof */}
-              <div className="mt-6 lg:mt-10 flex flex-col sm:flex-row items-center gap-4 animate-fade-in-up delay-400">
+              <div className="mt-5 lg:mt-7 flex flex-col sm:flex-row items-center gap-4 animate-fade-in-up delay-400">
                 <div className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/5 bg-white/2">
                   {[...Array(5)].map((_, i) => (
                     <svg key={i} className="w-3.5 h-3.5" style={{ color: '#FF6A00' }} fill="currentColor" viewBox="0 0 20 20">
@@ -250,7 +250,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-center">
-            <Link href="/services" className="btn-ghost px-8 py-4 text-base">
+            <Link href="/services" className="btn-orange px-8 py-3 text-base">
               View All Services →
             </Link>
           </div>
@@ -325,7 +325,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-center">
-            <Link href="/case-studies" className="btn-ghost px-8 py-4 text-base">
+            <Link href="/case-studies" className="btn-orange px-8 py-3 text-base">
               View All Case Studies →
             </Link>
           </div>
@@ -360,11 +360,11 @@ export default function HomePage() {
                 href={SITE_CONFIG.calendly}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-orange text-lg px-10 py-5"
+                className="btn-orange text-lg px-8 py-4"
               >
                 <span>Book Free Strategy Call →</span>
               </a>
-              <Link href="/contact" className="btn-ghost text-lg px-10 py-5">
+              <Link href="/contact" className="btn-orange text-lg px-8 py-4">
                 Send a Message
               </Link>
             </div>
