@@ -18,7 +18,7 @@ export const SITE_CONFIG = {
     email: 'noorulainrafiq791@gmail.com',
     linkedin: 'https://linkedin.com/in/noorulain',
     github: 'https://github.com/noorulain',
-    calendly: 'https://calendly.com/noorulain/strategy-call',
+    calendly: 'https://calendly.com/noorulain_',
     keywords: [
         'AI Automation Strategist',
         'n8n Workflow Expert',
