@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { formatDate } from "@/lib/utils";
 import { SITE_CONFIG } from "@/constants";
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({
     params,
