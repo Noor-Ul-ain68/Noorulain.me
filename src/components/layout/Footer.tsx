@@ -91,7 +91,10 @@ export default function Footer() {
 
                 <div className="divider mb-6" />
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs" style={{ color: '#6B7280' }}>
-                    <p>© 2024 Noor ul Ain. All rights reserved.</p>
+                    <div className="flex items-center gap-4">
+                        <p>© 2024 Noor ul Ain. All rights reserved.</p>
+                        <Link href="/admin/login" className="opacity-0 hover:opacity-40 transition-opacity">Admin Portal</Link>
+                    </div>
                     <p>AI Automation Strategist · n8n Expert · LLM Architect</p>
                 </div>
             </div>

@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SITE_CONFIG } from '@/constants';
-import { blogPosts } from '@/content/blog';
 import { formatDate } from '@/lib/utils';
 import BlogNewsletter from './BlogNewsletter';
+import { prisma } from '@/lib/prisma';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
     title: 'AI Automation Blog | n8n, LLM & SaaS Insights',
@@ -21,9 +23,24 @@ const categories = [
     'SaaS Development',
 ];
 
-export default function BlogPage() {
-    const featured = blogPosts[0];
-    const rest = blogPosts.slice(1);
+
+export default async function BlogPage() {
+    const posts = await prisma.post.findMany({
+        where: { published: true },
+        orderBy: { createdAt: 'desc' },
+    });
+
+    if (posts.length === 0) {
+        return (
+            <div className="min-h-screen pt-32 text-center text-gray-500">
+                <h1 className="text-2xl font-bold">No insights published yet.</h1>
+                <p>Check back soon for new AI automation strategies.</p>
+            </div>
+        );
+    }
+
+    const featured = posts[0];
+    const rest = posts.slice(1);
 
     return (
         <>
@@ -89,8 +106,8 @@ export default function BlogPage() {
                                     className="flex items-center gap-5 text-sm mb-4"
                                     style={{ color: '#6B7280' }}
                                 >
-                                    <span>📅 {formatDate(featured.date)}</span>
-                                    <span>⏱️ {featured.readTime}</span>
+                                    <span>📅 {formatDate(featured.createdAt.toISOString())}</span>
+                                    <span>⏱️ {featured.readTime || '8 min read'}</span>
                                 </div>
                                 <Link href={`/blog/${featured.slug}`} className="btn-orange text-sm">
                                     <span>Read Article →</span>
@@ -106,7 +123,7 @@ export default function BlogPage() {
                             >
                                 <div className="text-7xl mb-4">📡</div>
                                 <div className="flex flex-wrap gap-2 justify-center">
-                                    {featured.tags.map((tag) => (
+                                    {(featured.tags?.split(',') || []).map((tag: string) => (
                                         <span key={tag} className="tag">
                                             {tag}
                                         </span>
@@ -118,7 +135,7 @@ export default function BlogPage() {
 
                     {/* Blog Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                        {rest.map((post) => (
+                        {rest.map((post: any) => (
                             <article key={post.id} className="card p-6 flex flex-col group">
                                 <div className="flex items-center justify-between mb-5">
                                     <span className="tag">{post.category}</span>
@@ -133,10 +150,10 @@ export default function BlogPage() {
                                     className="text-sm leading-relaxed mb-6 flex-1"
                                     style={{ color: '#9CA3AF' }}
                                 >
-                                    {post.excerpt.slice(0, 140)}...
+                                    {post.excerpt?.slice(0, 140)}...
                                 </p>
                                 <div className="flex flex-wrap gap-2 mb-5">
-                                    {post.tags.slice(0, 3).map((tag) => (
+                                    {(post.tags?.split(',') || []).slice(0, 3).map((tag: string) => (
                                         <span
                                             key={tag}
                                             className="text-xs px-2 py-1 rounded-md"
@@ -152,7 +169,7 @@ export default function BlogPage() {
                                 </div>
                                 <div className="flex items-center justify-between">
                                     <span className="text-xs" style={{ color: '#6B7280' }}>
-                                        {formatDate(post.date)}
+                                        {formatDate(post.createdAt.toISOString())}
                                     </span>
                                     <Link
                                         href={`/blog/${post.slug}`}

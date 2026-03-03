@@ -1,0 +1,8 @@
+import { auth } from "@/auth";
+
+export default auth;
+
+export const config = {
+    // Apply this middleware to any path starting with /admin
+    matcher: ["/admin/:path*"],
+};
